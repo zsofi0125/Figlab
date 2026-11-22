@@ -19,7 +19,7 @@ const SRC = path.join(ROOT, 'src');
 const DIST = path.join(ROOT, 'dist');
 
 /** Cascade order matters, so it is explicit. Every file in src/styles must be listed. */
-const STYLE_ORDER = ['tokens', 'base', 'header', 'hero', 'about', 'work', 'mock-site', 'guarantee', 'process', 'affordable', 'pricing', 'faq', 'contact', 'footer'];
+const STYLE_ORDER = ['tokens', 'base', 'header', 'hero', 'about', 'work', 'guarantee', 'process', 'affordable', 'pricing', 'faq', 'contact', 'footer'];
 /** Helpers first, entry point last. Every file in src/scripts must be listed. */
 const SCRIPT_ORDER = ['utils', 'language', 'navigation', 'showcase', 'process', 'contact', 'main'];
 

@@ -20,14 +20,14 @@
   --plum-soft: #5a4a52;
   --wine: #8a2130;
 
-  --f-display: "Gloock", "Georgia", "Times New Roman", serif;
-  --f-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --f-display: "Montserrat Alternates", "Montserrat", system-ui, sans-serif;
+  --f-body: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: var(--f-body);
 
   --tap: 2.75rem;          /* 44px minimum touch target */
   --header-h: 4.5rem;
-  --gutter: max(1.25rem, env(safe-area-inset-left, 0px));
-  --gutter-end: max(1.25rem, env(safe-area-inset-right, 0px));
+  --gutter: max(clamp(1rem, 4vw, 3rem), env(safe-area-inset-left, 0px));
+  --gutter-end: max(clamp(1rem, 4vw, 3rem), env(safe-area-inset-right, 0px));
   --safe-top: env(safe-area-inset-top, 0px);
 
   color-scheme: dark;

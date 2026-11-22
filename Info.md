@@ -38,7 +38,7 @@ Last updated: 2026-11-22
 ## Sections (in order)
 
 1. **Header** – Figlab logo, menu, HU/EN switch, "Free design draft" button.
-2. **Hero** – headline, short description, buttons, key facts, and a fan of three finished-website cards (click one to jump to the showcase).
+2. **Hero** – headline, short description, buttons, key facts, and a fan of three finished-website cards (click one to jump to the showcase). Fig animations were tried here on 2026-11-22 and removed the same day because Zsófi didn't like them.
 3. **About / intro** – placeholder for her photo, placeholder for her About text, three promises.
 4. **Work / showcase** – each past website shown in a desktop **monitor frame** with a **phone frame** beside it; both can be scrolled. Tabs switch between projects.
 5. **Free design draft (guarantee)** – a prominent band: she makes a free design draft before the client pays anything.

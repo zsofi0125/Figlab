@@ -30,25 +30,27 @@
     "pricing": "Prices",
     "faq": "FAQ",
     "contact": "Contact",
-    "cta": "Free design draft"
+    "cta": "Let's start"
   },
   "hero": {
     "kicker": "Website design for small businesses",
     "titleHtml": "Websites that <em>ripen</em> into customers.",
-    "lead": "I design and build clear, fast, affordable websites for bakeries, studios, shops and local services. Fixed prices, plain language, and a site that works just as well on a phone as on a desktop.",
+    "lead": "I design and build clear websites at an affordable price for small businesses and service providers. Fixed prices, quick turnaround, and a site that works just as well on a phone as on a desktop.",
     "ctaPrimary": "Get a free design draft",
     "ctaSecondary": "See finished websites",
     "facts": {
       "draftLabel": "for the design draft until you approve it",
-      "launchedValue": "24",
-      "launchedLabel": "websites launched",
-      "replyValue": "1 day",
-      "replyLabel": "reply time, always"
+      "replyValue": "24 hours",
+      "replyLabel": "to reply to your enquiry",
+      "buildValue": "1-2 weeks",
+      "buildLabel": "to build your site, according to the chosen package",
+      "launchedValue": "2",
+      "launchedLabel": "websites launched"
     },
     "fanCaption": "Recent websites · tap one to look inside"
   },
   "about": {
-    "photoPlaceholder": "your photo here",
+    "photoAlt": "Zsófi, the web designer behind Figlab",
     "eyebrow": "Hello",
     "title": "I'm Zsófi, the person behind Figlab. I build the website your business deserves.",
     "bioPlaceholder": "Your About text goes here: who you are, how long you've been building websites, and why you love doing it.",
@@ -60,33 +62,28 @@
     ]
   },
   "work": {
-    "eyebrow": "Selected work",
-    "title": "Same website, every screen.",
-    "lead": "Each project on the big screen and on a phone, side by side. Scroll inside either screen to look around.",
+    "eyebrow": "My work so far",
+    "title": "The same site, on every screen.",
+    "lead": "Every project on a large screen and on a phone, side by side. Scroll inside either screen and look around.",
     "phoneLabel": "phone · 390 px",
-    "placeholderNote": "Project names, screenshots and results are placeholders, to be replaced with real projects.",
-    "ctaSimilar": "Want something similar?",
+    "ctaSimilar": "I want one like this",
+    "visitSite": "Visit the website",
+    "opensInNewTab": "opens in a new tab",
+    "shotAlt": "Screenshot of the {name} website",
     "projects": {
-      "morning-crumb": {
-        "category": "Bakery",
-        "type": "Bakery · One-page website",
-        "blurb": "A family bakery wanted people to pre-order bread online instead of calling at 6 am.",
-        "deliverables": ["Pre-order form linked to their email", "Opening hours and address on the first screen", "Photos of the daily bread, easy to update"],
-        "resultLabel": "more weekend pre-orders in the first two months"
+      "molnar-judit": {
+        "category": "Beauty salon",
+        "type": "Beauty salon - multi-page information website",
+        "title": "Judit Molnár, master beautician",
+        "blurb": "Everything is in one place, so visitors no longer have to search several pages (such as Facebook and Instagram) for the list of treatments and their prices. Google Maps shows the exact location of the salon, and the site has all the contact details. The site is SEO optimised, so new clients can easily find it through Google search.",
+        "note": ""
       },
-      "align-physio": {
-        "category": "Physio studio",
-        "type": "Physiotherapy · Business website",
-        "blurb": "A two-person physio practice needed a calmer, more trustworthy look and clear treatment pages.",
-        "deliverables": ["Enquiry form with quick replies", "Clear pages per treatment and price", "Fast loading on old phones"],
-        "resultLabel": "more enquiries through the site than by phone"
-      },
-      "petal-and-stem": {
-        "category": "Florist",
-        "type": "Florist · Website with extras",
-        "blurb": "A florist only took orders in person. Now couples book wedding consultations online.",
-        "deliverables": ["Calendar and online appointment booking", "Embedded map to the shop", "Seasonal blog she updates herself"],
-        "resultLabel": "consultations booked online in the first season"
+      "mecsekalja-apartman": {
+        "category": "Accommodation",
+        "type": "Accommodation - one-page website",
+        "title": "Mecsekalja apartment",
+        "blurb": "An information website for an apartment in Pécs: everything about the accommodation is in one place, and guests can book in a few clicks on the booking platform they prefer. It also has a daily-updated list of events in Pécs more than 90 days ahead, so visitors can easily find something to do during their stay. With the Google Maps map, guests can see the route from the apartment to any chosen place in one click, with the starting point filled in automatically.",
+        "note": "The site uses cookies to measure visits."
       }
     }
   },

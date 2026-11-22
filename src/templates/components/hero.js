@@ -2,7 +2,7 @@
 import { html } from '../../lib/html.js';
 import { heroDroplets } from '../../data/decor.js';
 import { projects } from '../../data/projects.js';
-import { placeholder } from '../helpers.js';
+import { assetHref, placeholder } from '../helpers.js';
 
 /** @param {import('../helpers.js').RenderContext} ctx */
 function renderProjectFan(ctx) {
@@ -10,7 +10,7 @@ function renderProjectFan(ctx) {
   return html`<div class="fan">
   ${projects.map((project, index) => html`<a class="card c${index}" href="#work" data-project-link="${project.id}">
     <span class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>${project.domain}</span></span>
-    <span class="vp still" data-render-width="1280" aria-hidden="true"><span class="scaler"><span class="site" data-mock-site="${project.id}"></span></span></span>
+    <span class="vp still" aria-hidden="true"><img src="${assetHref(ctx, project.screenshots.desktop.src)}" width="${project.screenshots.desktop.width}" height="${project.screenshots.desktop.height}" alt="" decoding="async"></span>
     <span class="tag">${t(`work.projects.${project.id}.category`)}</span>
     <span class="visually-hidden">${t('a11y.viewProject', { name: project.name })}</span>
   </a>`)}
@@ -33,8 +33,9 @@ export function renderHero(ctx) {
       </div>
       <ul class="facts" role="list">
         <li><b>${formatPrice(0)}</b>${t('hero.facts.draftLabel')}</li>
-        <li><b>${placeholder(t('hero.facts.launchedValue'))}</b>${t('hero.facts.launchedLabel')}</li>
         <li><b>${t('hero.facts.replyValue')}</b>${t('hero.facts.replyLabel')}</li>
+        <li><b>${t('hero.facts.buildValue')}</b>${t('hero.facts.buildLabel')}</li>
+        <li><b>${placeholder(t('hero.facts.launchedValue'))}</b>${t('hero.facts.launchedLabel')}</li>
       </ul>
     </div>
     ${renderProjectFan(ctx)}

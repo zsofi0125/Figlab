@@ -1,6 +1,6 @@
 // @ts-check
 import { html } from '../../lib/html.js';
-import { placeholderTag } from '../helpers.js';
+import { assetHref, placeholderTag } from '../helpers.js';
 import { icon } from './icons.js';
 
 /** @typedef {{ title: string, text: string }} PromiseItem */
@@ -10,10 +10,9 @@ export function renderAbout(ctx) {
   const { t, tData } = ctx.i18n;
   /** @type {PromiseItem[]} */
   const promises = tData('about.promises');
-  // Swap the .portrait placeholder for <img src="assets/img/zsofi.webp" width="560" height="700" alt="…" loading="lazy" decoding="async"> once the photo exists.
   return html`<section class="intro" id="about" aria-labelledby="about-title">
   <div class="wrap intro-grid">
-    <div class="portrait" aria-hidden="true"><span>${t('about.photoPlaceholder')}</span></div>
+    <div class="portrait"><img src="${assetHref(ctx, 'assets/img/zsofi.jpg')}" width="640" height="800" alt="${t('about.photoAlt')}" loading="lazy" decoding="async"></div>
     <div>
       <p class="eyebrow">${t('about.eyebrow')}</p>
       <h2 id="about-title" class="section-title">${t('about.title')}</h2>

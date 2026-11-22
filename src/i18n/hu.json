@@ -30,25 +30,27 @@
     "pricing": "Árak",
     "faq": "GYIK",
     "contact": "Kapcsolat",
-    "cta": "Ingyenes látványterv"
+    "cta": "Kezdjük"
   },
   "hero": {
     "kicker": "Weboldal készítés kisvállalkozásoknak",
     "titleHtml": "Weboldal, ami <em>beérik</em>, és ügyfeleket hoz.",
-    "lead": "Megfizethető áron tervezek és készítek átlátható, gyors weboldalakat pékségeknek, stúdióknak, üzleteknek és helyi szolgáltatóknak. Fix árak, érthető nyelv, és egy honlap, ami telefonon ugyanolyan jól működik, mint számítógépen.",
+    "lead": "Megfizethető áron tervezek és készítek átlátható weboldalakat kisebb vállalkozásoknak és szolgáltatóknak. Fix árak, gyors elkészülés, és egy honlap, ami telefonon ugyanolyan jól működik, mint számítógépen.",
     "ctaPrimary": "Kérem az ingyenes tervet",
     "ctaSecondary": "Elkészült weboldalak",
     "facts": {
       "draftLabel": "a látványterv, amíg el nem fogadod",
-      "launchedValue": "24",
-      "launchedLabel": "elkészült weboldal",
-      "replyValue": "1 nap",
-      "replyLabel": "alatt válaszolok, mindig"
+      "replyValue": "24 óra",
+      "replyLabel": "alatt válaszolok a megkeresésedre",
+      "buildValue": "1-2 hét",
+      "buildLabel": "alatt elkészül a választott csomaghoz mérten",
+      "launchedValue": "2",
+      "launchedLabel": "elkészült weboldal"
     },
     "fanCaption": "Friss munkák · kattints bele egybe"
   },
   "about": {
-    "photoPlaceholder": "ide jön a fotód",
+    "photoAlt": "Zsófi, a Figlab weboldal-készítője",
     "eyebrow": "Szia!",
     "title": "Zsófi vagyok, a Figlab mögött álló ember. Olyan weboldalt készítek, amilyet a vállalkozásod megérdemel.",
     "bioPlaceholder": "Ide kerül a bemutatkozó szöveged: ki vagy, mióta készítesz weboldalakat, és miért szereted ezt csinálni.",
@@ -60,33 +62,28 @@
     ]
   },
   "work": {
-    "eyebrow": "Válogatott munkák",
+    "eyebrow": "Eddigi munkáim",
     "title": "Ugyanaz az oldal, minden képernyőn.",
     "lead": "Minden munka nagy képernyőn és telefonon, egymás mellett. Görgess bármelyik képernyőn belül, és nézz körül.",
     "phoneLabel": "telefon · 390 px",
-    "placeholderNote": "A projektnevek, képek és eredmények helykitöltők, a valódi munkáimra cserélem őket.",
     "ctaSimilar": "Ilyet szeretnék",
+    "visitSite": "Weboldal megtekintése",
+    "opensInNewTab": "új lapon nyílik meg",
+    "shotAlt": "{name} weboldalának képernyőképe",
     "projects": {
-      "morning-crumb": {
-        "category": "Pékség",
-        "type": "Pékség · Egyoldalas weboldal",
-        "blurb": "Egy családi pékség azt szerette volna, hogy a vevők online rendeljék elő a kenyeret, ne hajnali hatkor telefonáljanak.",
-        "deliverables": ["Előrendelő űrlap, ami e-mailt küld nekik", "Nyitvatartás és cím rögtön az első képernyőn", "A napi kenyerek fotói, könnyen cserélhetők"],
-        "resultLabel": "több hétvégi előrendelés az első két hónapban"
+      "molnar-judit": {
+        "category": "Kozmetika",
+        "type": "Kozmetika - több oldalas információs weboldal",
+        "title": "Molnár Judit mesterkozmetikus",
+        "blurb": "Minden információ megtalálható egy helyen, így nem kell több oldalról (pl. Facebook, Instagram) keresni a szolgáltatások listáját és árát. Google maps mutatja a kozmetika pontos helyét és az oldal tartalmaz minden elérhetőséget. Az oldal SEO optimalizált, így könnyen megtalálható Google kereséssel az új vendégeknek.",
+        "note": ""
       },
-      "align-physio": {
-        "category": "Gyógytorna",
-        "type": "Gyógytorna · Céges weboldal",
-        "blurb": "Egy kétfős gyógytorna-stúdiónak nyugodtabb, megbízhatóbb megjelenés és átlátható kezelésoldalak kellettek.",
-        "deliverables": ["Ajánlatkérő űrlap, gyors visszajelzéssel", "Külön oldal minden kezelésnek, árral", "Gyors betöltés régebbi telefonokon is"],
-        "resultLabel": "több érdeklődés az oldalról, mint telefonon"
-      },
-      "petal-and-stem": {
-        "category": "Virágbolt",
-        "type": "Virágbolt · Weboldal extrákkal",
-        "blurb": "Egy virágbolt eddig csak személyesen fogadott rendelést. Most online lehet időpontot foglalni esküvői konzultációra.",
-        "deliverables": ["Naptár és online időpontfoglalás", "Beágyazott térkép a bolthoz", "Szezonális blog, amit ő maga frissít"],
-        "resultLabel": "online foglalt konzultáció az első szezonban"
+      "mecsekalja-apartman": {
+        "category": "Szálláshely",
+        "type": "Szálláshely - egyoldalas weboldal",
+        "title": "Mecsekalja apartman",
+        "blurb": "Információs weboldal egy Pécsi apartman számára, ahol egy helyen minden információ megtalálható a szállásról és a vendég az általa preferált szállásfoglaló platformon pár kattintással már foglalni is tud. Emellett tartalmaz egy naponta frissülő programlistát több mint 90 nappal előre a Pécsi programokról, hogy az odalátogatók könnyedén megtalálják a számukra megfelelő elfoglaltságot itt tartózkodásuk alatt. Google maps térképpel pedig egy kattintással, a kiindulópont automatikus kitöltésével egyből meg tudják nézni az útvonaltervet az apartmantól a választott lokációra.",
+        "note": "Az oldalon sütik mérik a látogatottságot."
       }
     }
   },

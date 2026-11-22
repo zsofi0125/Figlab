@@ -85,18 +85,42 @@ function New-OgImage([string]$name, [string]$kicker, [string]$title, [string]$su
   Save-Png $bmp $g $name
 }
 
-function New-Icon([string]$name, [int]$size, [bool]$withBackground) {
+# The brand mark: scripts/source/fig.png (black line art) recoloured to white, alpha kept.
+$figSource = [System.Drawing.Image]::FromFile((Join-Path $PSScriptRoot 'source/fig.png'))
+$whiteMatrix = New-Object System.Drawing.Imaging.ColorMatrix
+$whiteMatrix.Matrix00 = 0; $whiteMatrix.Matrix11 = 0; $whiteMatrix.Matrix22 = 0
+$whiteMatrix.Matrix40 = 1; $whiteMatrix.Matrix41 = 1; $whiteMatrix.Matrix42 = 1
+$whiteAttributes = New-Object System.Drawing.Imaging.ImageAttributes
+$whiteAttributes.SetColorMatrix($whiteMatrix)
+
+function Draw-WhiteFig($g, [int]$x, [int]$y, [int]$size) {
+  $dest = New-Object System.Drawing.Rectangle $x, $y, $size, $size
+  $g.DrawImage($figSource, $dest, 0, 0, $figSource.Width, $figSource.Height, [System.Drawing.GraphicsUnit]::Pixel, $whiteAttributes)
+}
+
+# White fig on a transparent background (site header logo).
+function New-WhiteFig([string]$name, [int]$size) {
   $canvas = New-Canvas $size $size; $bmp = $canvas[0]; $g = $canvas[1]
-  if ($withBackground) { $g.Clear($night) } else { $g.Clear([System.Drawing.Color]::Transparent) }
-  $scale = $size / ($(if ($withBackground) { 34 } else { 25 }))
-  Draw-Fig $g ($size / 2) ($size / 2 - 0.75 * $scale) $scale
+  $g.Clear([System.Drawing.Color]::Transparent)
+  Draw-WhiteFig $g 0 0 $size
+  Save-Png $bmp $g $name
+}
+
+# White fig on the dark brand square (favicon, touch icon, logo): readable on light and dark browser tabs.
+function New-Icon([string]$name, [int]$size) {
+  $canvas = New-Canvas $size $size; $bmp = $canvas[0]; $g = $canvas[1]
+  $g.Clear($night)
+  $pad = [int]($size * 0.12)
+  Draw-WhiteFig $g $pad $pad ($size - 2 * $pad)
   Save-Png $bmp $g $name
 }
 
 Write-Host 'Generating brand images...'
 New-OgImage 'og-hu.png' 'WEBOLDAL KÉSZÍTÉS' "Olcsó, igényes weboldal kisvállalkozásoknak" 'Fix ár · ingyenes látványterv fizetés előtt'
 New-OgImage 'og-en.png' 'WEBSITE DESIGN' 'Affordable websites for small businesses' 'Fixed price · free design draft before you pay'
-New-Icon 'logo-512.png' 512 $true
-New-Icon 'apple-touch-icon.png' 180 $true
-New-Icon 'favicon-48.png' 48 $false
+New-WhiteFig 'fig-white.png' 96
+New-Icon 'logo-512.png' 512
+New-Icon 'apple-touch-icon.png' 180
+New-Icon 'favicon-48.png' 48
+New-Icon 'favicon-32.png' 32
 Write-Host 'Done. Rebuild with: npm run build'

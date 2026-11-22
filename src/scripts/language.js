@@ -12,8 +12,23 @@ function initLanguagePreference() {
   const currentLanguage = document.documentElement.lang;
   const links = /** @type {HTMLAnchorElement[]} */ ([...document.querySelectorAll('a[data-lang-link]')]);
 
+  const switcher = document.querySelector('.lang');
   links.forEach((link) => {
-    link.addEventListener('click', () => safeStorage.set(LANGUAGE_STORAGE_KEY, link.dataset.langLink ?? ''));
+    link.addEventListener('click', (event) => {
+      const isPlainClick = event.button === 0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey;
+      if (!isPlainClick || !(switcher instanceof HTMLElement)) return;
+      // Clicking the language that is already shown flips to the other one, so the switch always does something.
+      const isCurrent = link.getAttribute('aria-current') === 'page';
+      const destination = isCurrent ? links.find((other) => other !== link) : link;
+      if (!destination) return;
+      event.preventDefault();
+      safeStorage.set(LANGUAGE_STORAGE_KEY, destination.dataset.langLink ?? '');
+      // Slide the pill to the destination first, then follow its link.
+      switcher.classList.add('is-switching');
+      destination.classList.add('is-target');
+      switcher.style.setProperty('--i', String(links.indexOf(destination)));
+      window.setTimeout(() => { window.location.href = destination.href; }, prefersReducedMotion() ? 0 : 600);
+    });
   });
 
   const preferred = safeStorage.get(LANGUAGE_STORAGE_KEY);

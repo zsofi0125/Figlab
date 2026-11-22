@@ -1,9 +1,9 @@
 // @ts-check
 import { html } from '../../lib/html.js';
 import { projects } from '../../data/projects.js';
-import { draftOnly, placeholderTag } from '../helpers.js';
+import { assetHref } from '../helpers.js';
 
-/** @typedef {{ category: string, type: string, blurb: string, deliverables: string[], resultLabel: string }} ProjectCopy */
+/** @typedef {{ category: string, type: string, title: string, blurb: string, note: string }} ProjectCopy */
 
 /**
  * @param {import('../helpers.js').RenderContext} ctx
@@ -15,13 +15,28 @@ function renderCasePanel(ctx, project, isActive) {
   /** @type {ProjectCopy} */
   const copy = tData(`work.projects.${project.id}`);
   return html`<div class="case${isActive ? ' is-active' : ''}" role="tabpanel" id="case-${project.id}" aria-labelledby="tab-${project.id}" tabindex="0">
-  <p class="type">${copy.type}${project.isPlaceholder ? placeholderTag(ctx) : ''}</p>
-  <h3>${project.name}</h3>
+  <p class="type">${copy.type}</p>
+  <h3>${copy.title}</h3>
   <p>${copy.blurb}</p>
-  <ul role="list">${copy.deliverables.map((item) => html`<li>${item}</li>`)}</ul>
-  <p class="result"><b>${project.result}</b><span>${copy.resultLabel}</span></p>
-  <a class="btn btn-ghost btn-sm" href="#contact">${t('work.ctaSimilar')}</a>
+  ${copy.note ? html`<p class="note">${copy.note}</p>` : ''}
+  <div class="case-actions">
+    <a class="btn btn-seed btn-sm" href="${project.url}" target="_blank" rel="noopener">${t('work.visitSite')}<span class="visually-hidden"> (${project.domain}, ${t('work.opensInNewTab')})</span></a>
+    <a class="btn btn-ghost btn-sm" href="#contact">${t('work.ctaSimilar')}</a>
+  </div>
 </div>`;
+}
+
+/**
+ * One screenshot per project inside a device frame; JS shows the selected one.
+ * @param {import('../helpers.js').RenderContext} ctx
+ * @param {'desktop' | 'phone'} device
+ */
+function renderScreenshots(ctx, device) {
+  const { t } = ctx.i18n;
+  return projects.map((project, index) => {
+    const shot = project.screenshots[device];
+    return html`<img class="shot" src="${assetHref(ctx, shot.src)}" width="${shot.width}" height="${shot.height}" alt="${t('work.shotAlt', { name: project.name })}" data-shot-for="${project.id}"${index === 0 ? '' : html` hidden loading="lazy"`} decoding="async">`;
+  });
 }
 
 /** @param {import('../helpers.js').RenderContext} ctx */
@@ -42,12 +57,12 @@ export function renderWork(ctx) {
     <div class="showroom">
       <div class="devices">
         <div class="monitor">
-          <div class="bezel"><div class="vp" data-render-width="1280" data-device-viewport tabindex="0" role="region" aria-label="${t('a11y.desktopPreview')}"><div class="scaler" aria-hidden="true"><div class="site"></div></div></div></div>
+          <div class="bezel"><div class="vp" data-device-viewport tabindex="0" role="region" aria-label="${t('a11y.desktopPreview')}">${renderScreenshots(ctx, 'desktop')}</div></div>
           <div class="neck"></div><div class="foot"></div>
         </div>
         <div class="phone">
           <div class="notch"></div>
-          <div class="vp" data-render-width="390" data-device-viewport tabindex="0" role="region" aria-label="${t('a11y.phonePreview')}"><div class="scaler" aria-hidden="true"><div class="site"></div></div></div>
+          <div class="vp" data-device-viewport tabindex="0" role="region" aria-label="${t('a11y.phonePreview')}">${renderScreenshots(ctx, 'phone')}</div>
         </div>
         <p class="dev-label" aria-hidden="true">${t('work.phoneLabel')}</p>
       </div>
@@ -55,7 +70,6 @@ export function renderWork(ctx) {
         ${projects.map((project, index) => renderCasePanel(ctx, project, index === 0))}
       </div>
     </div>
-    ${draftOnly(ctx, html`<p class="hint">${t('work.placeholderNote')}</p>`)}
   </div>
 </section>`;
 }

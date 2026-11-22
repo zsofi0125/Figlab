@@ -21,7 +21,7 @@ import { renderSeoHead } from './seo/meta.js';
  */
 export function renderDocument(ctx, { meta, assets, body, resolveAsset = (path) => assetHref(ctx, path) }) {
   const { config, locale } = ctx;
-  const fontsUrl = 'https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Archivo:wght@800&display=swap';
+  const fontsUrl = 'https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap';
   return `<!doctype html>
 ${html`<html lang="${locale.htmlLang}" dir="ltr">
 <head>
@@ -31,7 +31,7 @@ ${renderSeoHead(ctx, meta)}
 <meta name="theme-color" content="${config.themeColor}">
 <meta name="color-scheme" content="dark">
 <meta name="author" content="${config.brandName}">
-<link rel="icon" href="${resolveAsset('favicon.svg')}" type="image/svg+xml">
+<link rel="icon" href="${resolveAsset('assets/img/favicon-32.png')}" sizes="32x32" type="image/png">
 <link rel="icon" href="${resolveAsset('assets/img/favicon-48.png')}" sizes="48x48" type="image/png">
 <link rel="apple-touch-icon" href="${resolveAsset('assets/img/apple-touch-icon.png')}">
 <link rel="preconnect" href="https://fonts.googleapis.com">

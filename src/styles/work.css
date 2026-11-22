@@ -1,4 +1,5 @@
 /* Showcase: monitor + phone frames, tabs switch projects */
+#work { background: #231629; border-block: 1px solid var(--line); }
 .work-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1.5rem; }
 .work-head .lead { max-width: 42ch; }
 .tabs { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2.25rem; }
@@ -24,8 +25,6 @@ html:not(.js) .devices { display: none; }
 .phone { position: absolute; right: 0; bottom: 0; z-index: 3; width: 34%; min-width: 7.5rem; padding: 6px; border-radius: 22px; background: #0b080c; box-shadow: 0 24px 50px rgba(0, 0, 0, .6), inset 0 0 0 1.5px #3a3340; }
 .phone .vp { aspect-ratio: 9 / 19.5; border-radius: 17px; }
 .phone .notch { position: absolute; top: 10px; left: 50%; z-index: 4; width: 32%; height: 10px; transform: translateX(-50%); border-radius: 10px; background: #0b080c; }
-.scaler { position: relative; display: block; }
-.scaler .site { position: absolute; top: 0; left: 0; transform-origin: 0 0; }
 .dev-label { position: absolute; right: 0; bottom: -1.5rem; font-family: var(--f-mono); font-size: .7rem; letter-spacing: .06em; color: var(--ink-dim); }
 
 /* Case studies: all rendered in HTML; JS shows one at a time. Without JS they simply stack. */
@@ -36,14 +35,10 @@ html:not(.js) .devices { display: none; }
 .case .type { font-family: var(--f-mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--stem); }
 .case p { margin-top: .875rem; color: var(--ink-dim); }
 .case p.type { margin-top: 0; }
-.case ul { display: grid; gap: .625rem; margin-top: 1.375rem; }
-.case li { display: flex; gap: .625rem; font-size: .95rem; }
-.case li::before { content: ""; flex: none; width: 8px; height: 8px; margin-top: 9px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: var(--seed-hi); }
-.case .result { margin-top: 1.625rem; padding: 1.125rem 1.25rem; border-radius: 14px; background: var(--skin); border: 1px solid var(--line); }
-.result b { display: block; font-family: var(--f-display); font-weight: 400; font-size: 2.2rem; line-height: 1; color: var(--flesh); }
-.result span { font-size: .9rem; color: var(--ink-dim); }
-.case .btn { margin-top: 1.375rem; }
-.hint { margin-top: 1.875rem; font-family: var(--f-mono); font-size: .72rem; color: var(--ink-dim); }
+.case p.note { font-size: .9rem; }
+.case-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+.shot { display: block; width: 100%; height: auto; }
+.shot[hidden] { display: none; }
 
 @media (min-width: 35em) {
   .phone { width: 26%; padding: 9px; border-radius: 34px; }

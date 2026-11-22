@@ -1,6 +1,5 @@
 // @ts-check
 import { html, jsonForScript } from '../../lib/html.js';
-import { projects } from '../../data/projects.js';
 import { renderDocument } from '../layout.js';
 import { buildHomeStructuredData } from '../seo/structured-data.js';
 import { renderDraftBanner, renderSiteHeader } from '../components/header.js';
@@ -21,23 +20,21 @@ import { renderFooter } from '../components/footer.js';
  */
 export function renderHomePage(ctx, assets) {
   const { t } = ctx.i18n;
-  const mockSites = Object.fromEntries(projects.map((project) => [project.id, project.mock]));
 
   const body = html`${renderDraftBanner(ctx)}
 ${renderSiteHeader(ctx)}
 <main id="main" tabindex="-1">
 ${renderHero(ctx)}
-${renderAbout(ctx)}
 ${renderWork(ctx)}
 ${renderGuarantee(ctx)}
 ${renderProcess(ctx)}
 ${renderAffordable(ctx)}
 ${renderPricing(ctx)}
+${renderAbout(ctx)}
 ${renderFaq(ctx)}
 ${renderContact(ctx)}
 </main>
-${renderFooter(ctx)}
-<script type="application/json" id="mock-sites-data">${jsonForScript(mockSites)}</script>`;
+${renderFooter(ctx)}`;
 
   return renderDocument(ctx, {
     assets,
