@@ -1,0 +1,17 @@
+{
+  "name": "figlab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Figlab portfolio site: static, bilingual (hu/en), SEO-first.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node --env-file-if-exists=.env scripts/build.mjs",
+    "build:staging": "node --env-file-if-exists=.env scripts/build.mjs --staging",
+    "preview": "node scripts/preview.mjs",
+    "dev": "npm run build:staging && npm run preview",
+    "images": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/generate-images.ps1"
+  }
+}

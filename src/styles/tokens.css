@@ -1,0 +1,34 @@
+/* Design tokens. Fig theme: aubergine skin, cream flesh, crimson seeds, golden stem, on a dark ground.
+   Breakpoints (min-width, mobile-first): 30em = 480px · 35em = 560px · 48em = 768px · 56em = 896px · 60em = 960px */
+:root {
+  --night: #140e17;
+  --skin: #3a2440;
+  --skin-hi: #5b3a63;
+  --flesh: #f1e6cc;
+  --seed: #b81f33;
+  --seed-hi: #e04456;
+  --seed-deep: #9e1a2c;   /* hover state that keeps cream text above 4.5:1 */
+  --stem: #c7a24f;
+  --leaf: #6f8a47;
+  --ink: #f6eee0;
+  --ink-dim: #bfaec4;
+  --line: rgba(241, 230, 204, .14);
+
+  /* text on the cream (flesh) surfaces */
+  --plum: #2a1a2e;
+  --plum-body: #3d2d38;
+  --plum-soft: #5a4a52;
+  --wine: #8a2130;
+
+  --f-display: "Gloock", "Georgia", "Times New Roman", serif;
+  --f-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --tap: 2.75rem;          /* 44px minimum touch target */
+  --header-h: 4.5rem;
+  --gutter: max(1.25rem, env(safe-area-inset-left, 0px));
+  --gutter-end: max(1.25rem, env(safe-area-inset-right, 0px));
+  --safe-top: env(safe-area-inset-top, 0px);
+
+  color-scheme: dark;
+}

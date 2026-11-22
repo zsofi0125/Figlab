@@ -1,0 +1,39 @@
+/* Mock client websites: rendered at a real width, then scaled down by JS.
+   Container queries pick the layout, phone first. Pixel values are intentional:
+   they describe the mock at its real size before scaling. */
+.site { display: block; container-type: inline-size; font-family: var(--m-font, var(--f-body)); background: var(--m-bg); color: var(--m-ink); line-height: 1.5; }
+.m-nav { display: flex; justify-content: space-between; align-items: center; padding: 46px 22px 16px; border-bottom: 1px solid var(--m-line); }
+.m-logo { font: var(--m-logo); letter-spacing: -.01em; }
+.m-links { display: none; gap: 28px; font-size: 15px; opacity: .8; }
+.m-burger { display: block; position: relative; width: 26px; height: 18px; border-top: 2.5px solid currentColor; border-bottom: 2.5px solid currentColor; }
+.m-burger::after { content: ""; position: absolute; left: 0; right: 0; top: 5.5px; border-top: 2.5px solid currentColor; }
+.m-btn { display: inline-block; padding: 12px 22px; border-radius: var(--m-radius); background: var(--m-accent); color: var(--m-on-accent); font-weight: 600; font-size: 15px; }
+.m-nav .m-btn { display: none; }
+.m-hero { display: grid; grid-template-columns: 1fr; gap: 26px; padding: 30px 22px 36px; align-items: center; }
+.m-title { font: var(--m-h); font-size: 40px; line-height: 1.02; letter-spacing: -.02em; }
+.m-hero p { max-width: 44ch; margin: 18px 0 26px; font-size: 16px; opacity: .78; }
+.m-hero .m-btn { display: block; padding: 15px; text-align: center; }
+.m-img { aspect-ratio: 4 / 3.4; border-radius: var(--m-radius); background: var(--m-img); }
+.m-cards { display: grid; grid-template-columns: 1fr; gap: 12px; padding: 0 22px 32px; }
+.m-card { display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; padding: 18px; border-radius: var(--m-radius); background: var(--m-card); }
+.m-card i { display: block; grid-row: span 2; width: 44px; height: 44px; margin: 0; border-radius: 50%; background: var(--m-accent); opacity: .85; }
+.m-card b { display: block; font-size: 19px; }
+.m-card span { font-size: 15px; opacity: .7; }
+.m-quote { margin: 0 22px 32px; padding: 26px; border-radius: var(--m-radius); background: var(--m-accent); color: var(--m-on-accent); font: var(--m-q); font-size: 20px; }
+.m-foot { display: flex; flex-direction: column; gap: 4px; padding: 22px; font-size: 14px; opacity: .6; border-top: 1px solid var(--m-line); }
+
+@container (min-width: 601px) {
+  .m-nav { padding: 22px 56px; }
+  .m-links { display: flex; }
+  .m-nav .m-btn { display: inline-block; }
+  .m-burger { display: none; }
+  .m-hero { grid-template-columns: 1.1fr 1fr; gap: 48px; padding: 72px 56px; }
+  .m-title { font: var(--m-h); line-height: 1.02; }
+  .m-hero p { font-size: 18px; }
+  .m-hero .m-btn { display: inline-block; padding: 12px 22px; text-align: left; }
+  .m-cards { grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0 56px 64px; }
+  .m-card { display: block; padding: 26px; }
+  .m-card i { margin-bottom: 16px; }
+  .m-quote { margin: 0 56px 64px; padding: 40px; font: var(--m-q); }
+  .m-foot { flex-direction: row; justify-content: space-between; padding: 28px 56px; }
+}

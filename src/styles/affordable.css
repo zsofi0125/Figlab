@@ -1,0 +1,13 @@
+/* "Why it's affordable" section */
+.affordable { border-top: 1px solid var(--line); }
+.affordable .lead { margin-top: 1.125rem; }
+.value-points { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; margin-top: 2.5rem; }
+.value-points li { padding: 1.5rem 1.5rem 1.625rem; border-radius: 18px; background: rgba(58, 36, 64, .35); border: 1px solid var(--line); }
+.value-points svg { width: 1.75rem; height: 2.5rem; margin-bottom: .75rem; }
+.value-points h3 { font-family: var(--f-body); font-weight: 700; font-size: 1.15rem; line-height: 1.3; color: var(--flesh); }
+.value-points p { margin-top: .5rem; font-size: .95rem; color: var(--ink-dim); }
+.affordable-closing { max-width: 62ch; margin-top: 1.75rem; color: var(--ink); }
+
+@media (min-width: 48em) {
+  .value-points { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
