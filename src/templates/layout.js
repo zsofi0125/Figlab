@@ -1,7 +1,6 @@
 // @ts-check
-import { html } from '../lib/html.js';
+import { html, raw } from '../lib/html.js';
 import { assetHref } from './helpers.js';
-import { renderIconSprite } from './components/icons.js';
 import { renderSeoHead } from './seo/meta.js';
 
 /**
@@ -9,6 +8,12 @@ import { renderSeoHead } from './seo/meta.js';
  * @property {string} css  Root-relative path of the hashed stylesheet.
  * @property {string} js   Root-relative path of the hashed script bundle.
  */
+
+/**
+ * Runs before the stylesheet paints: marks JS as available and applies a theme the visitor picked
+ * earlier, so the page never flashes the wrong colours. Keep the storage key in sync with scripts/theme.js.
+ */
+const THEME_BOOTSTRAP = "document.documentElement.classList.add('js');try{var t=localStorage.getItem('site-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}";
 
 /**
  * The HTML document shell shared by every page.
@@ -28,8 +33,9 @@ ${html`<html lang="${locale.htmlLang}" dir="ltr">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 ${renderSeoHead(ctx, meta)}
-<meta name="theme-color" content="${config.themeColor}">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="${config.themeColor.light}" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="${config.themeColor.dark}" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
 <meta name="author" content="${config.brandName}">
 <link rel="icon" href="${resolveAsset('assets/img/favicon-32.png')}" sizes="32x32" type="image/png">
 <link rel="icon" href="${resolveAsset('assets/img/favicon-48.png')}" sizes="48x48" type="image/png">
@@ -38,12 +44,11 @@ ${renderSeoHead(ctx, meta)}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="${fontsUrl}">
 <link rel="stylesheet" href="${resolveAsset(assets.css)}">
-<script>document.documentElement.classList.add('js')</script>
+<script>${raw(THEME_BOOTSTRAP)}</script>
 <script src="${resolveAsset(assets.js)}" defer></script>
 </head>
 <body${ctx.isDraft ? html` class="is-draft"` : ''}>
 <a class="skip-link" href="#main">${ctx.i18n.t('a11y.skipToContent')}</a>
-${renderIconSprite()}
 ${body}
 </body>
 </html>`}

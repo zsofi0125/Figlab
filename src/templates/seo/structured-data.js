@@ -10,7 +10,7 @@ import { buildFaqItems } from '../view-models.js';
 /**
  * Schema.org graph for the home page. Every value comes from the same sources as the
  * visible page (dictionaries + data files), so the markup cannot drift from the content.
- * Organization (not LocalBusiness) on purpose: Figlab publishes no street address.
+ * Organization (not LocalBusiness) on purpose: the site publishes no street address.
  * @param {RenderContext} ctx
  */
 export function buildHomeStructuredData(ctx) {

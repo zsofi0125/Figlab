@@ -21,7 +21,7 @@ const DIST = path.join(ROOT, 'dist');
 /** Cascade order matters, so it is explicit. Every file in src/styles must be listed. */
 const STYLE_ORDER = ['tokens', 'base', 'header', 'hero', 'about', 'work', 'guarantee', 'process', 'affordable', 'pricing', 'faq', 'contact', 'footer'];
 /** Helpers first, entry point last. Every file in src/scripts must be listed. */
-const SCRIPT_ORDER = ['utils', 'language', 'navigation', 'showcase', 'process', 'contact', 'main'];
+const SCRIPT_ORDER = ['utils', 'theme', 'language', 'navigation', 'showcase', 'contact', 'main'];
 
 /** @param {string} content */
 const contentHash = (content) => createHash('sha256').update(content).digest('hex').slice(0, 10);
@@ -126,7 +126,7 @@ async function build() {
   const isDraft = !siteConfig.isProduction;
 
   const contexts = siteConfig.locales.map((locale) => ({
-    i18n: createI18n(dictionaries.get(locale.code), locale, siteConfig.currency),
+    i18n: createI18n(dictionaries.get(locale.code), locale, siteConfig.currency, { brand: siteConfig.brandName }),
     config: siteConfig,
     locale,
     isDraft,

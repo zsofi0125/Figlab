@@ -20,7 +20,7 @@ function renderCasePanel(ctx, project, isActive) {
   <p>${copy.blurb}</p>
   ${copy.note ? html`<p class="note">${copy.note}</p>` : ''}
   <div class="case-actions">
-    <a class="btn btn-seed btn-sm" href="${project.url}" target="_blank" rel="noopener">${t('work.visitSite')}<span class="visually-hidden"> (${project.domain}, ${t('work.opensInNewTab')})</span></a>
+    <a class="btn btn-primary btn-sm" href="${project.url}" target="_blank" rel="noopener">${t('work.visitSite')}<span class="visually-hidden"> (${project.domain}, ${t('work.opensInNewTab')})</span></a>
     <a class="btn btn-ghost btn-sm" href="#contact">${t('work.ctaSimilar')}</a>
   </div>
 </div>`;

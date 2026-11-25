@@ -13,9 +13,9 @@ export function buildFaqItems(i18n) {
   /** @type {FaqItem[]} */
   const items = i18n.tData('faq.items');
   const prices = {
-    seedlingPrice: i18n.formatPrice(getPlan('seedling').priceFrom),
-    ripePrice: i18n.formatPrice(getPlan('ripe').priceFrom),
-    grovePrice: i18n.formatPrice(getPlan('grove').priceFrom),
+    starterPrice: i18n.formatPrice(getPlan('starter').priceFrom),
+    businessPrice: i18n.formatPrice(getPlan('business').priceFrom),
+    extrasPrice: i18n.formatPrice(getPlan('extras').priceFrom),
   };
   return items.map((item) => ({
     question: i18n.format(item.question, prices),

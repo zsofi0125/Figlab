@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Olcsó weboldal készítés kisvállalkozásoknak | Figlab",
+    "title": "Olcsó weboldal készítés kisvállalkozásoknak | {brand}",
     "description": "Olcsó, mégis igényes weboldal készítés kisvállalkozásoknak, fix áron. Egyoldalas és céges honlap mobilra szabva, ingyenes látványtervvel.",
-    "ogImageAlt": "Figlab: weboldal készítés kisvállalkozásoknak, ingyenes látványtervvel"
+    "ogImageAlt": "{brand}: weboldal készítés kisvállalkozásoknak, ingyenes látványtervvel"
   },
   "a11y": {
     "skipToContent": "Ugrás a tartalomra",
@@ -15,15 +15,16 @@
     "phonePreview": "Telefonos nézet előnézete, görgethető",
     "showcaseTabs": "Válogatott munkák",
     "viewProject": "{name}: munka megtekintése",
-    "plantLabel": "Egy fügebokor nő magból termésig, ahogy a folyamat halad"
+    "themeToDark": "Váltás sötét módra",
+    "themeToLight": "Váltás világos módra"
   },
   "draft": {
-    "noticeHtml": "Figlab vázlat · ami így van aláhúzva: <span class=\"draft-sample\">minta</span>, az még helykitöltő, cserélendő",
+    "noticeHtml": "{brand} vázlat · ami így van aláhúzva: <span class=\"draft-sample\">minta</span>, az még helykitöltő, cserélendő",
     "hide": "Elrejtés",
     "placeholderTag": "helykitöltő"
   },
   "nav": {
-    "home": "Figlab főoldal",
+    "home": "{brand} főoldal",
     "about": "Rólam",
     "work": "Munkáim",
     "process": "Folyamat",
@@ -34,7 +35,7 @@
   },
   "hero": {
     "kicker": "Weboldal készítés kisvállalkozásoknak",
-    "titleHtml": "Weboldal, ami <em>beérik</em>, és ügyfeleket hoz.",
+    "titleHtml": "Weboldal, ami <em>ügyfeleket</em> hoz.",
     "lead": "Megfizethető áron tervezek és készítek átlátható weboldalakat kisebb vállalkozásoknak és szolgáltatóknak. Fix árak, gyors elkészülés, és egy honlap, ami telefonon ugyanolyan jól működik, mint számítógépen.",
     "ctaPrimary": "Kérem az ingyenes tervet",
     "ctaSecondary": "Elkészült weboldalak",
@@ -50,9 +51,9 @@
     "fanCaption": "Friss munkák · kattints bele egybe"
   },
   "about": {
-    "photoAlt": "Zsófi, a Figlab weboldal-készítője",
+    "photoAlt": "Zsófi, a {brand} weboldal-készítője",
     "eyebrow": "Szia!",
-    "title": "Zsófi vagyok, a Figlab mögött álló ember. Olyan weboldalt készítek, amilyet a vállalkozásod megérdemel.",
+    "title": "Zsófi vagyok, a {brand} mögött álló ember. Olyan weboldalt készítek, amilyet a vállalkozásod megérdemel.",
     "bioPlaceholder": "Ide kerül a bemutatkozó szöveged: ki vagy, mióta készítesz weboldalakat, és miért szereted ezt csinálni.",
     "body": "Nem kell értened a weboldalakhoz. Mesélj az ügyfeleidről, és arról, mit szeretnél, hogy tegyenek az oldaladon. A többit én intézem: dizájn, szövegszerkezet, képek, tárhely és indítás.",
     "promises": [
@@ -96,19 +97,18 @@
   },
   "process": {
     "eyebrow": "Így dolgozunk együtt",
-    "title": "Egy ötlet magjától a beérett weboldalig.",
+    "title": "Az első levéltől a kész weboldalig.",
     "lead": "Öt lépés, nagyjából öt hét. Mindig tudod, mi következik, és mit kapsz az egyes lépések végén.",
     "stepOf": "{n}. lépés az 5-ből",
     "youGet": "Amit kapsz:",
-    "scrollHint": "Görgess tovább, és nő ↓",
     "stages": [
-      { "when": "1. nap", "name": "Mag", "what": "Első levél", "text": "Írsz pár mondatot a vállalkozásodról és arról, mit kellene tudnia az oldalnak. Semmit nem kell előkészítened.", "get": "válasz egy munkanapon belül" },
-      { "when": "1. hét", "name": "Csíra", "what": "Ingyenes látványterv", "text": "Megtervezem, hogyan nézne ki az oldalad számítógépen és telefonon. Ezért még semmit nem fizetsz.", "get": "egy látványtervet, ingyen" },
-      { "when": "2. hét", "name": "Levelek", "what": "Döntés és terv", "text": "Ha tetszik a terv, megbeszéljük a fix árat, az aloldalakat és a tartalmat. Egy rövid listát kapsz arról, mire van szükségem tőled.", "get": "fix árat és egyoldalas tervet" },
-      { "when": "3–4. hét", "name": "Virág", "what": "Építés", "text": "Felépítem az összes oldalt, gyorsan és mobilra szabva, űrlapokkal és a keresőoptimalizálás alapjaival.", "get": "egy tesztlinket a telefonodra" },
-      { "when": "5. hét", "name": "Termés", "what": "Indulás", "text": "Az oldalad élesbe áll a saját domaineden. Megmutatom, hogyan szerkesztheted, és utána is számíthatsz rám.", "get": "a kész weboldaladat" }
+      { "when": "1. nap", "what": "Első levél", "text": "Írsz pár mondatot a vállalkozásodról és arról, mit kellene tudnia az oldalnak. Semmit nem kell előkészítened.", "get": "válasz egy munkanapon belül" },
+      { "when": "1. hét", "what": "Ingyenes látványterv", "text": "Megtervezem, hogyan nézne ki az oldalad számítógépen és telefonon. Ezért még semmit nem fizetsz.", "get": "egy látványtervet, ingyen" },
+      { "when": "2. hét", "what": "Döntés és terv", "text": "Ha tetszik a terv, megbeszéljük a fix árat, az aloldalakat és a tartalmat. Egy rövid listát kapsz arról, mire van szükségem tőled.", "get": "fix árat és egyoldalas tervet" },
+      { "when": "3–4. hét", "what": "Építés", "text": "Felépítem az összes oldalt, gyorsan és mobilra szabva, űrlapokkal és a keresőoptimalizálás alapjaival.", "get": "egy tesztlinket a telefonodra" },
+      { "when": "5. hét", "what": "Indulás", "text": "Az oldalad élesbe áll a saját domaineden. Megmutatom, hogyan szerkesztheted, és utána is számíthatsz rám.", "get": "a kész weboldaladat" }
     ],
-    "insideHtml": "<b>Tudtad, hogy a füge belül virágzik?</b> A virága a termésben rejtőzik. Egy jó weboldal is ilyen: a gondos munka, amit nem látsz (sebesség, keresők, akadálymentesség), az teszi édessé a látogatóidnak."
+    "insideHtml": "<b>A legfontosabb munka az, amit nem látsz.</b> A sebesség, a keresőoptimalizálás és az akadálymentesség rejtve marad, mégis ettől lesz kellemes egy weboldal a látogatóidnak."
   },
   "affordable": {
     "eyebrow": "Megfizethető weboldal",
@@ -130,24 +130,24 @@
     "fromSuffix": "-tól",
     "featuredBadge": "Legnépszerűbb",
     "plans": {
-      "seedling": {
-        "tier": "Magonc",
+      "starter": {
+        "tier": "Induló",
         "title": "Egyoldalas weboldal",
         "audience": "Új vállalkozásoknak, amelyeknek gyorsan kell megbízhatónak tűnniük online.",
         "timeline": "Kb. 2 hét alatt kész",
         "features": ["Egy görgethető oldal, legfeljebb 6 szakasszal", "Kapcsolatfelvételi űrlap", "Telefonon, tableten és számítógépen is jól működik", "Google Cégprofil beállítása", "1 kör módosítás"],
         "cta": "Érdekel"
       },
-      "ripe": {
-        "tier": "Érett füge",
+      "business": {
+        "tier": "Standard",
         "title": "Céges weboldal",
         "audience": "Működő vállalkozásoknak, amelyek több érdeklődőt és ügyfelet szeretnének.",
         "timeline": "Kb. 4–5 hét alatt kész",
         "features": ["Legfeljebb 6 aloldal (főoldal, szolgáltatások, rólunk, árak, galéria, kapcsolat)", "A szövegek felépítését közösen írjuk meg", "Ajánlatkérő űrlap", "Sebesség és keresőoptimalizálás alapjai", "Videós útmutató a saját szerkesztéshez", "2 kör módosítás"],
         "cta": "Ezt kérem"
       },
-      "grove": {
-        "tier": "Fügeliget",
+      "extras": {
+        "tier": "Teljes",
         "title": "Weboldal extrákkal",
         "audience": "Ha az ügyfeleid online foglalnának időpontot, és rendszeresen mesélnél nekik újdonságokról.",
         "timeline": "Kb. 6–7 hét alatt kész",
@@ -177,7 +177,7 @@
     "title": "Amit mindenki megkérdez az elején.",
     "lead": "Más is érdekel? Írj nyugodtan, a válasz ingyenes és nem kötelez semmire.",
     "items": [
-      { "question": "Mennyibe kerül egy weboldal elkészítése?", "answer": "Egy egyoldalas weboldal nálam {seedlingPrice}-tól, egy legfeljebb 6 aloldalas céges weboldal {ripePrice}-tól, az időpontfoglalással és bloggal bővített változat {grovePrice}-tól indul. A pontos, fix árat az ingyenes látványterv után kapod meg, és az utána már nem változik." },
+      { "question": "Mennyibe kerül egy weboldal elkészítése?", "answer": "Egy egyoldalas weboldal nálam {starterPrice}-tól, egy legfeljebb 6 aloldalas céges weboldal {businessPrice}-tól, az időpontfoglalással és bloggal bővített változat {extrasPrice}-tól indul. A pontos, fix árat az ingyenes látványterv után kapod meg, és az utána már nem változik." },
       { "question": "Kell fizetnem, mielőtt bármit látnék?", "answer": "Nem. Először ingyen elkészítem a látványtervet. Ha tetszik, megbeszéljük a fix árat, és csak utána fizetsz. Ha nem tetszik, nem tartozol semmivel." },
       { "question": "Mennyi idő alatt készül el egy weboldal?", "answer": "Egy egyoldalas weboldal nagyjából 2 hét, egy céges weboldal 4–5 hét, az extrákkal bővített változat 6–7 hét alatt készül el. A látványtervet már az első héten megkapod." },
       { "question": "Miért olcsóbb nálad a weboldal készítés, mint egy ügynökségnél?", "answer": "Mert közvetlenül velem dolgozol: nincs értékesítő, projektmenedzser és ügynökségi rezsi, amit az árba kellene építeni. Csak a tervezésért és az építésért fizetsz, a minőségből pedig nem engedek." },
@@ -185,13 +185,13 @@
       { "question": "Mi van, ha nincsenek képeim vagy szövegeim?", "answer": "Adok egy rövid listát arról, mi kell, és segítek megírni a szövegeket. Ha fotók kellenek, tudok fotóst ajánlani." },
       { "question": "Kié lesz a weboldal és a domain?", "answer": "A tiéd. A domain a te nevedre kerül, és az indításkor minden belépési adatot megkapsz." },
       { "question": "Tudok később magam is változtatni rajta?", "answer": "Igen. Kapsz egy rövid videós útmutatót a szövegek, árak és képek szerkesztéséhez. Nagyobb változtatásokra ott vannak a havi csomagok." },
-      { "question": "Lehet online időpontfoglalás vagy blog az oldalon?", "answer": "Igen, a Fügeliget csomagban benne van a naptár és időpontfoglalás, a beágyazott Google Térkép és a blog." },
+      { "question": "Lehet online időpontfoglalás vagy blog az oldalon?", "answer": "Igen, a Teljes csomagban benne van a naptár és időpontfoglalás, a beágyazott Google Térkép és a blog." },
       { "question": "Megtalálnak majd a Google-ön?", "answer": "Minden oldal megkapja a keresőoptimalizálás alapjait: oldalcímek, leírások, gyors betöltés és Google Cégprofil." },
       { "question": "Az ország bármely részéről dolgozhatunk együtt?", "answer": "Igen. Minden e-mailben és online zajlik, így Budapesttől Szegedig bárhol működő vállalkozásnak tudok weboldalt készíteni." }
     ]
   },
   "contact": {
-    "title": "Ültessük el a magot.",
+    "title": "Vágjunk bele!",
     "lead": "Írj két mondatot a vállalkozásodról, és arról, mit kellene tudnia a weboldaladnak. Egy munkanapon belül válaszolok, és elindulunk az ingyenes látványterv felé.",
     "mailLabel": "Írj nekem",
     "writeEmail": "Levél írása",
@@ -201,13 +201,13 @@
     "note": "E-mailben vagyok elérhető, így minden megbeszélés írásban megmarad."
   },
   "footer": {
-    "copyright": "© {year} Figlab",
+    "copyright": "© {year} {brand}",
     "tagline": "Weboldal készítés kisvállalkozásoknak",
-    "motto": "Lassan érlelve, gondosan építve."
+    "motto": "Gondosan tervezve, gondosan építve."
   },
   "notFound": {
-    "title": "Az oldal nem található | Figlab",
-    "heading": "Ez a füge még nem érett be.",
+    "title": "Az oldal nem található | {brand}",
+    "heading": "Úgy tűnik, eltévedtél.",
     "text": "A keresett oldal nem létezik, vagy elköltözött.",
     "backHome": "Vissza a főoldalra"
   }

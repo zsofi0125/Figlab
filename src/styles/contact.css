@@ -1,18 +1,18 @@
-/* Contact (email only) */
-.contact { position: relative; overflow: hidden; background: var(--seed); color: var(--flesh); }
-.contact .wrap { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; align-items: center; }
-.contact h2 { font-size: clamp(2.6rem, 6vw, 4.6rem); }
-.contact .wrap > div > p { max-width: 46ch; margin-top: 1.125rem; opacity: .92; }
-.mailbox { display: grid; gap: .875rem; padding: 1.625rem; border-radius: 20px; background: var(--night); }
-.mailbox-label { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--stem); }
+/* Contact (email only): the one full-colour block on the page */
+.contact { background: var(--color-accent); color: var(--color-on-accent); }
+.contact .wrap { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; align-items: center; }
+.contact h2 { font-size: clamp(2.6rem, 6vw, 4.4rem); }
+.contact .wrap > div > p { max-width: 46ch; margin-top: 1.125rem; }
+.mailbox { display: grid; gap: .875rem; padding: 1.75rem; border-radius: var(--radius); background: var(--color-bg); color: var(--color-text); }
+.mailbox-label { font-family: var(--f-mono); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--color-secondary); }
 .mailrow { display: flex; flex-wrap: wrap; gap: .625rem; align-items: center; }
-.mail-address { display: inline-flex; align-items: center; min-height: var(--tap); font-family: var(--f-mono); font-size: 1.15rem; color: var(--flesh); text-decoration: none; word-break: break-all; }
+.mail-address { display: inline-flex; align-items: center; min-height: var(--tap); font-family: var(--f-mono); font-size: 1.15rem; text-decoration: none; word-break: break-all; }
 .mail-address:hover { text-decoration: underline; }
 .mailbox .actions { display: flex; flex-wrap: wrap; gap: .625rem; }
 .mailbox .btn { padding: .625rem 1.125rem; font-size: .92rem; }
-.copy { min-height: var(--tap); padding: .5rem 1rem; border: 0; border-radius: 999px; cursor: pointer; font: 600 .85rem var(--f-body); background: var(--flesh); color: var(--night); }
-.mailbox-note { font-size: .85rem; color: var(--ink-dim); }
-.seeds-bg { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; opacity: .18; pointer-events: none; }
+.copy { min-height: var(--tap); padding: .5rem 1rem; border: 1.5px solid var(--color-line-strong); border-radius: 999px; cursor: pointer; font: 600 .85rem var(--f-body); background: none; color: var(--color-text); }
+.copy:hover { border-color: var(--color-text); }
+.mailbox-note { font-size: .85rem; color: var(--color-text-muted); }
 
 @media (min-width: 30em) { .mail-address { font-size: 1.25rem; } }
 @media (min-width: 56em) { .contact .wrap { grid-template-columns: 1.2fr 1fr; } }

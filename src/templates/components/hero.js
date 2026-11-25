@@ -1,6 +1,5 @@
 // @ts-check
 import { html } from '../../lib/html.js';
-import { heroDroplets } from '../../data/decor.js';
 import { projects } from '../../data/projects.js';
 import { assetHref, placeholder } from '../helpers.js';
 
@@ -22,13 +21,12 @@ function renderProjectFan(ctx) {
 export function renderHero(ctx) {
   const { t, tHtml, formatPrice } = ctx.i18n;
   return html`<section class="hero" id="top" aria-labelledby="hero-title">
-  ${heroDroplets.map(([left, top, size]) => html`<span class="drop" style="left:${left}%;top:${top}%;width:${size}px;height:${size}px" aria-hidden="true"></span>`)}
   <div class="wrap">
     <div>
       <h1 id="hero-title"><span class="hero-kicker">${t('hero.kicker')}</span> <span class="hero-headline">${tHtml('hero.titleHtml')}</span></h1>
       <p class="lead">${t('hero.lead')}</p>
       <div class="ctas">
-        <a class="btn btn-seed" href="#free">${t('hero.ctaPrimary')}</a>
+        <a class="btn btn-primary" href="#free">${t('hero.ctaPrimary')}</a>
         <a class="btn btn-ghost" href="#work">${t('hero.ctaSecondary')}</a>
       </div>
       <ul class="facts" role="list">

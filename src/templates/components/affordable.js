@@ -1,6 +1,5 @@
 // @ts-check
 import { html } from '../../lib/html.js';
-import { icon } from './icons.js';
 
 /** @typedef {{ title: string, text: string }} ValuePoint */
 
@@ -10,7 +9,7 @@ import { icon } from './icons.js';
  * @param {import('../helpers.js').RenderContext} ctx
  */
 export function renderAffordable(ctx) {
-  const { t, tData } = ctx.i18n;
+  const { t, tData, formatNumber } = ctx.i18n;
   /** @type {ValuePoint[]} */
   const points = tData('affordable.points');
   return html`<section class="affordable" id="affordable" aria-labelledby="affordable-title">
@@ -19,8 +18,8 @@ export function renderAffordable(ctx) {
     <h2 id="affordable-title" class="section-title">${t('affordable.title')}</h2>
     <p class="lead">${t('affordable.lead')}</p>
     <ul class="value-points" role="list">
-      ${points.map((point) => html`<li>
-        ${icon('fig-ripe')}
+      ${points.map((point, index) => html`<li>
+        <span class="num" aria-hidden="true">${formatNumber(index + 1).padStart(2, '0')}</span>
         <h3>${point.title}</h3>
         <p>${point.text}</p>
       </li>`)}

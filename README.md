@@ -1,6 +1,6 @@
-# Figlab
+# Portfolio site
 
-Portfolio site for Figlab, built as static HTML in Hungarian (`/`) and English (`/en/`). The build has no dependencies and needs only Node 22 or newer.
+Portfolio site, built as static HTML in Hungarian (`/`) and English (`/en/`). The build has no dependencies and needs only Node 22 or newer.
 
 ## Commands
 

@@ -1,6 +1,5 @@
 // @ts-check
 import { html } from '../../lib/html.js';
-import { icon } from './icons.js';
 
 /** @param {import('../helpers.js').RenderContext} ctx */
 export function renderGuarantee(ctx) {
@@ -9,7 +8,6 @@ export function renderGuarantee(ctx) {
   const steps = tData('guarantee.steps');
   return html`<section class="guarantee" id="free" aria-labelledby="free-title">
   <div class="wrap">
-    ${icon('fig-cut', 'big')}
     <div>
       <p class="eyebrow">${t('guarantee.eyebrow')}</p>
       <h2 id="free-title" class="section-title">${tHtml('guarantee.titleHtml')}</h2>

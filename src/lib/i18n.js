@@ -24,8 +24,9 @@ function interpolate(template, params, encode = (value) => value) {
  * @param {Record<string, unknown>} dictionary
  * @param {LocaleConfig} locale
  * @param {string} currency ISO 4217 code
+ * @param {Params} [globals] Values every string may use, such as {brand}, so the site name lives in one place.
  */
-export function createI18n(dictionary, locale, currency) {
+export function createI18n(dictionary, locale, currency, globals = {}) {
   /** @param {string} key @returns {unknown} */
   const lookup = (key) => {
     /** @type {unknown} */
@@ -54,9 +55,9 @@ export function createI18n(dictionary, locale, currency) {
   return {
     locale,
     /** Plain text, escaped by the html`` template. @param {string} key @param {Params} [params] */
-    t: (key, params = {}) => interpolate(lookupString(key), params),
+    t: (key, params = {}) => interpolate(lookupString(key), { ...globals, ...params }),
     /** Trusted inline markup (<b>, <em>) from the dictionary; string params are escaped. @param {string} key @param {HtmlParams} [params] */
-    tHtml: (key, params = {}) => raw(interpolate(lookupString(key), params, escapeHtml)),
+    tHtml: (key, params = {}) => raw(interpolate(lookupString(key), { ...globals, ...params }, escapeHtml)),
     /**
      * Structured entries (lists of FAQ items, plan features...). The caller states the shape.
      * @template T
@@ -65,7 +66,7 @@ export function createI18n(dictionary, locale, currency) {
      */
     tData: (key) => /** @type {T} */ (lookup(key)),
     /** @param {string} template @param {Params} params */
-    format: (template, params) => interpolate(template, params),
+    format: (template, params) => interpolate(template, { ...globals, ...params }),
     /** @param {number} amount */
     formatPrice: (amount) => currencyFormat.format(amount),
     /** @param {number} value */

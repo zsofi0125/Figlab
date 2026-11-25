@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Affordable Website Design for Small Businesses | Figlab",
+    "title": "Affordable Website Design for Small Businesses | {brand}",
     "description": "Affordable, carefully built websites for small businesses, at a fixed price. One-page and business sites, mobile-first, with a free design draft first.",
-    "ogImageAlt": "Figlab: website design for small businesses, with a free design draft"
+    "ogImageAlt": "{brand}: website design for small businesses, with a free design draft"
   },
   "a11y": {
     "skipToContent": "Skip to content",
@@ -15,15 +15,16 @@
     "phonePreview": "Phone preview, scrollable",
     "showcaseTabs": "Selected work",
     "viewProject": "{name}: view project",
-    "plantLabel": "A fig bush grows from seed to fruit as the process moves on"
+    "themeToDark": "Switch to dark mode",
+    "themeToLight": "Switch to light mode"
   },
   "draft": {
-    "noticeHtml": "Figlab draft · everything underlined like <span class=\"draft-sample\">this</span> is a placeholder to replace",
+    "noticeHtml": "{brand} draft · everything underlined like <span class=\"draft-sample\">this</span> is a placeholder to replace",
     "hide": "Hide",
     "placeholderTag": "placeholder"
   },
   "nav": {
-    "home": "Figlab home",
+    "home": "{brand} home",
     "about": "About",
     "work": "Work",
     "process": "Process",
@@ -34,7 +35,7 @@
   },
   "hero": {
     "kicker": "Website design for small businesses",
-    "titleHtml": "Websites that <em>ripen</em> into customers.",
+    "titleHtml": "Websites that <em>turn visitors</em> into customers.",
     "lead": "I design and build clear websites at an affordable price for small businesses and service providers. Fixed prices, quick turnaround, and a site that works just as well on a phone as on a desktop.",
     "ctaPrimary": "Get a free design draft",
     "ctaSecondary": "See finished websites",
@@ -50,9 +51,9 @@
     "fanCaption": "Recent websites · tap one to look inside"
   },
   "about": {
-    "photoAlt": "Zsófi, the web designer behind Figlab",
+    "photoAlt": "Zsófi, the web designer behind {brand}",
     "eyebrow": "Hello",
-    "title": "I'm Zsófi, the person behind Figlab. I build the website your business deserves.",
+    "title": "I'm Zsófi, the person behind {brand}. I build the website your business deserves.",
     "bioPlaceholder": "Your About text goes here: who you are, how long you've been building websites, and why you love doing it.",
     "body": "You don't need to know anything about websites. Tell me about your customers and what you want them to do, and I take care of the rest: design, text structure, photos, hosting and launch.",
     "promises": [
@@ -96,19 +97,18 @@
   },
   "process": {
     "eyebrow": "How we work together",
-    "title": "From a seed of an idea to a website in fruit.",
+    "title": "From first email to finished website.",
     "lead": "Five steps, about five weeks. You always know what happens next and what you'll get at the end of each step.",
     "stepOf": "Step {n} of 5",
     "youGet": "You get:",
-    "scrollHint": "Keep scrolling to grow it ↓",
     "stages": [
-      { "when": "Day 1", "name": "Seed", "what": "First email", "text": "You write a few lines about your business and what the website must do. No preparation needed.", "get": "a reply within one working day" },
-      { "when": "Week 1", "name": "Sprout", "what": "Free design draft", "text": "I design how your site would look on desktop and phone. You pay nothing for this.", "get": "a design draft, for free" },
-      { "when": "Week 2", "name": "Leaves", "what": "Decision and plan", "text": "If you like the draft, we agree on the fixed price, the pages and the content. You get one short list of what I need from you.", "get": "a fixed price and a one-page plan" },
-      { "when": "Weeks 3–4", "name": "Blossom", "what": "Build", "text": "I build every page, fast and mobile-first, with forms and search engine basics.", "get": "a test link for your phone" },
-      { "when": "Week 5", "name": "Fruit", "what": "Launch", "text": "Your site goes live on your domain. I show you how to edit it, and I stay on hand afterwards.", "get": "your finished website" }
+      { "when": "Day 1", "what": "First email", "text": "You write a few lines about your business and what the website must do. No preparation needed.", "get": "a reply within one working day" },
+      { "when": "Week 1", "what": "Free design draft", "text": "I design how your site would look on desktop and phone. You pay nothing for this.", "get": "a design draft, for free" },
+      { "when": "Week 2", "what": "Decision and plan", "text": "If you like the draft, we agree on the fixed price, the pages and the content. You get one short list of what I need from you.", "get": "a fixed price and a one-page plan" },
+      { "when": "Weeks 3–4", "what": "Build", "text": "I build every page, fast and mobile-first, with forms and search engine basics.", "get": "a test link for your phone" },
+      { "when": "Week 5", "what": "Launch", "text": "Your site goes live on your domain. I show you how to edit it, and I stay on hand afterwards.", "get": "your finished website" }
     ],
-    "insideHtml": "<b>Did you know figs flower on the inside?</b> The blossom is hidden in the fruit. A good website is the same: the careful work you never see (speed, search engines, accessibility) is what makes it sweet for your visitors."
+    "insideHtml": "<b>The most important work is the part you never see.</b> Speed, search engines and accessibility stay out of sight, but they are what makes a website pleasant for your visitors."
   },
   "affordable": {
     "eyebrow": "Affordable websites",
@@ -130,24 +130,24 @@
     "fromSuffix": "",
     "featuredBadge": "Most chosen",
     "plans": {
-      "seedling": {
-        "tier": "Seedling",
+      "starter": {
+        "tier": "Starter",
         "title": "One-page website",
         "audience": "For a new business that needs to look trustworthy online, fast.",
         "timeline": "Ready in about 2 weeks",
         "features": ["One scrolling page with up to 6 sections", "Contact form", "Works on phones, tablets and desktops", "Google Business profile set up", "1 round of changes"],
         "cta": "Ask about this"
       },
-      "ripe": {
-        "tier": "Ripe fig",
+      "business": {
+        "tier": "Standard",
         "title": "Business website",
         "audience": "For an established business that wants more enquiries and customers.",
         "timeline": "Ready in about 4–5 weeks",
         "features": ["Up to 6 pages (home, services, about, prices, gallery, contact)", "Text structure written with you", "Enquiry form", "Speed and search engine basics", "Edit-it-yourself video guide", "2 rounds of changes"],
         "cta": "I want this"
       },
-      "grove": {
-        "tier": "Fig grove",
+      "extras": {
+        "tier": "Complete",
         "title": "Website with extras",
         "audience": "For when your customers should book online and you want to share news regularly.",
         "timeline": "Ready in about 6–7 weeks",
@@ -177,7 +177,7 @@
     "title": "Asked before every first project.",
     "lead": "Something else on your mind? Just write to me, answers are free and there's no obligation.",
     "items": [
-      { "question": "How much does a website cost?", "answer": "A one-page website starts from {seedlingPrice}, a business website with up to 6 pages from {ripePrice}, and the version with booking and a blog from {grovePrice}. You get the exact, fixed price after the free design draft, and it doesn't change after that." },
+      { "question": "How much does a website cost?", "answer": "A one-page website starts from {starterPrice}, a business website with up to 6 pages from {businessPrice}, and the version with booking and a blog from {extrasPrice}. You get the exact, fixed price after the free design draft, and it doesn't change after that." },
       { "question": "Do I have to pay before I see anything?", "answer": "No. First I make a free design draft. If you like it, we agree on the fixed price and only then do you pay. If you don't, you owe nothing." },
       { "question": "How long does it take to build a website?", "answer": "A one-page website takes about 2 weeks, a business website 4–5 weeks, and the version with extras 6–7 weeks. You get the design draft in the first week." },
       { "question": "Why are you cheaper than an agency?", "answer": "Because you work with me directly: there are no sales staff, project managers or agency overheads built into the price. You pay for design and build, and I don't compromise on quality." },
@@ -185,13 +185,13 @@
       { "question": "What if I don't have photos or texts?", "answer": "I give you a short list of what's needed and help you write the texts. If you need photos, I can recommend a photographer." },
       { "question": "Who owns the website and the domain?", "answer": "You do. The domain is registered in your name and you get all the logins at launch." },
       { "question": "Can I change things myself later?", "answer": "Yes. You get a short video guide for editing texts, prices and photos. For bigger changes there are the monthly plans." },
-      { "question": "Can my site have online booking or a blog?", "answer": "Yes. The Fig grove package includes a calendar with appointment booking, embedded Google Maps and a blog." },
+      { "question": "Can my site have online booking or a blog?", "answer": "Yes. The Complete package includes a calendar with appointment booking, embedded Google Maps and a blog." },
       { "question": "Will people find me on Google?", "answer": "Every site gets the search engine basics: page titles, descriptions, fast loading and a Google Business profile." },
       { "question": "Can we work together wherever I am in Hungary?", "answer": "Yes. Everything happens by email and online, so I can build a website for a business anywhere, from Budapest to Szeged." }
     ]
   },
   "contact": {
-    "title": "Let's plant the seed.",
+    "title": "Let's get started.",
     "lead": "Write me two sentences about your business and what your website should do. I'll reply within one working day and we'll get started on your free design draft.",
     "mailLabel": "Email me",
     "writeEmail": "Write an email",
@@ -201,13 +201,13 @@
     "note": "I work by email, so everything we agree stays in writing."
   },
   "footer": {
-    "copyright": "© {year} Figlab",
+    "copyright": "© {year} {brand}",
     "tagline": "Web design for small businesses",
-    "motto": "Grown slowly, built carefully."
+    "motto": "Carefully designed, carefully built."
   },
   "notFound": {
-    "title": "Page not found | Figlab",
-    "heading": "This fig isn't ripe yet.",
+    "title": "Page not found | {brand}",
+    "heading": "Looks like you're lost.",
     "text": "The page you're looking for doesn't exist or has moved.",
     "backHome": "Back to the home page"
   }

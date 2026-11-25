@@ -7,7 +7,7 @@
  *
  * Set `isPlaceholder: false` once a value is final: it removes the dashed staging marker.
  *
- * @typedef {'seedling' | 'ripe' | 'grove'} PlanId
+ * @typedef {'starter' | 'business' | 'extras'} PlanId
  * @typedef {{ id: PlanId, priceFrom: number, isFeatured: boolean, isPlaceholder: boolean }} OneTimePlan
  * @typedef {'care' | 'carePlus'} MonthlyPlanId
  * @typedef {{ id: MonthlyPlanId, pricePerMonth: number, isPlaceholder: boolean }} MonthlyPlan
@@ -15,9 +15,9 @@
 
 /** @type {readonly OneTimePlan[]} */
 export const oneTimePlans = Object.freeze([
-  { id: 'seedling', priceFrom: 149000, isFeatured: false, isPlaceholder: true },
-  { id: 'ripe', priceFrom: 349000, isFeatured: true, isPlaceholder: true },
-  { id: 'grove', priceFrom: 549000, isFeatured: false, isPlaceholder: true },
+  { id: 'starter', priceFrom: 149000, isFeatured: false, isPlaceholder: true },
+  { id: 'business', priceFrom: 349000, isFeatured: true, isPlaceholder: true },
+  { id: 'extras', priceFrom: 549000, isFeatured: false, isPlaceholder: true },
 ]);
 
 /** @type {readonly MonthlyPlan[]} */

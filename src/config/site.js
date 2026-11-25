@@ -43,14 +43,16 @@ const locales = Object.freeze([
 ]);
 
 export const siteConfig = Object.freeze({
-  brandName: 'Figlab',
+  // Placeholder until the new name is chosen. Every visible mention of the site name comes from here.
+  brandName: 'Studio Name',
   siteUrl: (process.env.SITE_URL || 'https://figlab.hu').replace(/\/+$/, ''),
   environment,
   isProduction: environment === 'production',
   contactEmail: 'figlab25@gmail.com',
   founderName: 'Zsófi',
   currency: 'HUF',
-  themeColor: '#140e17',
+  /** Browser UI colour per theme; matches --color-bg in styles/tokens.css. */
+  themeColor: Object.freeze({ light: '#f6f1ea', dark: '#231c1a' }),
   googleSiteVerification: process.env.GOOGLE_SITE_VERIFICATION || '',
   /** @type {LocaleCode} */
   defaultLocale: 'hu',

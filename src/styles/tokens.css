@@ -1,34 +1,69 @@
-/* Design tokens. Fig theme: aubergine skin, cream flesh, crimson seeds, golden stem, on a dark ground.
+/* Design tokens: a calm, mostly neutral palette with one strong accent (soiled pink) and a quiet
+   second one (olive). Colours are named by their job, so the light and dark themes only swap values.
+   Light is the default; dark follows the browser setting unless the visitor picks a theme with the
+   header switch, which sets <html data-theme>. The dark values are listed twice because CSS cannot
+   share one block between a media query and an attribute selector.
    Breakpoints (min-width, mobile-first): 30em = 480px · 35em = 560px · 48em = 768px · 56em = 896px · 60em = 960px */
 :root {
-  --night: #140e17;
-  --skin: #3a2440;
-  --skin-hi: #5b3a63;
-  --flesh: #f1e6cc;
-  --seed: #b81f33;
-  --seed-hi: #e04456;
-  --seed-deep: #9e1a2c;   /* hover state that keeps cream text above 4.5:1 */
-  --stem: #c7a24f;
-  --leaf: #6f8a47;
-  --ink: #f6eee0;
-  --ink-dim: #bfaec4;
-  --line: rgba(241, 230, 204, .14);
-
-  /* text on the cream (flesh) surfaces */
-  --plum: #2a1a2e;
-  --plum-body: #3d2d38;
-  --plum-soft: #5a4a52;
-  --wine: #8a2130;
+  --color-bg: #f6f1ea;
+  --color-surface: #ede5da;
+  --color-surface-strong: #d7cab7;
+  --color-text: #3e0911;
+  --color-text-muted: #6b4448;       /* 7.3:1 on bg, 5.1:1 on surface-strong */
+  --color-accent: #85383e;
+  --color-accent-hover: #6e2b31;
+  --color-on-accent: #f6f1ea;        /* 7.1:1 on accent */
+  --color-secondary: #5c6139;        /* olive, darkened so small labels pass 4.5:1 on bg and surface */
+  --color-line: rgba(62, 9, 17, .14);
+  --color-line-strong: rgba(62, 9, 17, .32);
+  --color-draft: #8a6a1c;            /* staging-only placeholder markers */
+  --color-device: #1c1517;           /* monitor and phone frames look the same in both themes */
+  --shadow-soft: 0 18px 40px -18px rgba(62, 9, 17, .28);
+  color-scheme: light;
 
   --f-display: "Montserrat Alternates", "Montserrat", system-ui, sans-serif;
   --f-body: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
   --f-mono: var(--f-body);
 
+  --radius: 1rem;
   --tap: 2.75rem;          /* 44px minimum touch target */
   --header-h: 4.5rem;
   --gutter: max(clamp(1rem, 4vw, 3rem), env(safe-area-inset-left, 0px));
   --gutter-end: max(clamp(1rem, 4vw, 3rem), env(safe-area-inset-right, 0px));
   --safe-top: env(safe-area-inset-top, 0px);
+}
 
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #231c1a;
+    --color-surface: #2d2522;
+    --color-surface-strong: #3a2f2b;
+    --color-text: #f3ece2;
+    --color-text-muted: #d7cab7;
+    --color-accent: #c39583;
+    --color-accent-hover: #d4aa99;
+    --color-on-accent: #3e0911;
+    --color-secondary: #a9ae80;
+    --color-line: rgba(243, 236, 226, .14);
+    --color-line-strong: rgba(243, 236, 226, .3);
+    --color-draft: #d9b45e;
+    --shadow-soft: 0 18px 40px -18px rgba(0, 0, 0, .55);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --color-bg: #231c1a;
+  --color-surface: #2d2522;
+  --color-surface-strong: #3a2f2b;
+  --color-text: #f3ece2;
+  --color-text-muted: #d7cab7;
+  --color-accent: #c39583;
+  --color-accent-hover: #d4aa99;
+  --color-on-accent: #3e0911;
+  --color-secondary: #a9ae80;
+  --color-line: rgba(243, 236, 226, .14);
+  --color-line-strong: rgba(243, 236, 226, .3);
+  --color-draft: #d9b45e;
+  --shadow-soft: 0 18px 40px -18px rgba(0, 0, 0, .55);
   color-scheme: dark;
 }

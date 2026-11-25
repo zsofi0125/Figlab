@@ -1,6 +1,6 @@
 // @ts-check
 
-const LANGUAGE_STORAGE_KEY = 'figlab-lang';
+const LANGUAGE_STORAGE_KEY = 'site-lang';
 
 /**
  * Remembers the visitor's language choice. Each language has its own URL (/ and /en/),

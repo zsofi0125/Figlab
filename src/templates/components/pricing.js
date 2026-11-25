@@ -2,7 +2,6 @@
 import { html } from '../../lib/html.js';
 import { hosting, monthlyPlans, oneTimePlans } from '../../data/pricing.js';
 import { draftOnly, placeholder } from '../helpers.js';
-import { icon } from './icons.js';
 
 /** @typedef {{ tier: string, title: string, audience: string, timeline: string, features: string[], cta: string }} PlanCopy */
 /** @typedef {{ tier: string, title: string, features: string[] }} MonthlyPlanCopy */
@@ -16,7 +15,7 @@ function renderPlan(ctx, plan) {
   /** @type {PlanCopy} */
   const copy = tData(`pricing.plans.${plan.id}`);
   const suffix = t('pricing.fromSuffix');
-  return html`<article class="plan${plan.isFeatured ? ' ripe' : ''}" aria-labelledby="plan-${plan.id}">
+  return html`<article class="plan${plan.isFeatured ? ' is-featured' : ''}" aria-labelledby="plan-${plan.id}">
   ${plan.isFeatured ? html`<p class="badge">${t('pricing.featuredBadge')}</p>` : ''}
   <p class="tier">${copy.tier}</p>
   <h3 id="plan-${plan.id}">${copy.title}</h3>
@@ -24,7 +23,7 @@ function renderPlan(ctx, plan) {
   <p class="price"><small>${t('pricing.fromPrefix')}</small><b>${placeholder(formatPrice(plan.priceFrom), plan.isPlaceholder)}</b>${suffix ? html`<small>${suffix}</small>` : ''}</p>
   <p class="time">${copy.timeline}</p>
   <ul role="list">${copy.features.map((feature) => html`<li>${feature}</li>`)}</ul>
-  <a class="btn ${plan.isFeatured ? 'btn-seed' : 'btn-ghost'}" href="#contact">${copy.cta}<span class="visually-hidden"> – ${copy.title}</span></a>
+  <a class="btn ${plan.isFeatured ? 'btn-primary' : 'btn-ghost'}" href="#contact">${copy.cta}<span class="visually-hidden"> – ${copy.title}</span></a>
 </article>`;
 }
 
@@ -64,10 +63,7 @@ export function renderPricing(ctx) {
     <div class="plans">
       ${oneTimePlans.map((plan) => renderPlan(ctx, plan))}
     </div>
-    <div class="free-note">
-      ${icon('fig-cut')}
-      <p>${tHtml('pricing.freeNoteHtml')}</p>
-    </div>
+    <p class="free-note">${tHtml('pricing.freeNoteHtml')}</p>
     ${renderMonthlyPlans(ctx)}
     <ul class="fine" role="list">
       <li>${t('pricing.fine.payAfterApproval')}</li>

@@ -1,6 +1,6 @@
 ﻿# Generates the raster brand images into src/static/assets/img:
 #   og-hu.png, og-en.png (1200x630 social share), logo-512.png (JSON-LD logo),
-#   apple-touch-icon.png (180x180), favicon-48.png.
+#   apple-touch-icon.png (180x180), favicon-48.png, favicon-32.png.
 # Windows only (System.Drawing). Run with: npm run images
 # This file must stay saved as UTF-8 *with BOM*, or Windows PowerShell 5.1 garbles the accents.
 
@@ -15,40 +15,10 @@ function New-Color([string]$hex, [int]$alpha = 255) {
   return [System.Drawing.Color]::FromArgb($alpha, $c.R, $c.G, $c.B)
 }
 
-$night = New-Color '#140e17'; $skinHi = New-Color '#5b3a63'; $flesh = New-Color '#f1e6cc'
-$seed = New-Color '#b81f33'; $seedHi = New-Color '#e04456'; $stem = New-Color '#c7a24f'; $inkDim = New-Color '#bfaec4'
-
-# Fig outline from the site's SVG symbol (#fig-cut), as four cubic Béziers.
-function New-FigPath([double[]]$points, [double]$cx, [double]$cy, [double]$s) {
-  $path = New-Object System.Drawing.Drawing2D.GraphicsPath
-  for ($i = 0; $i -lt 4; $i++) {
-    $o = $i * 6
-    $p = @()
-    for ($k = 0; $k -lt 8; $k += 2) {
-      $idx = ($o + $k) % 24
-      $p += New-Object System.Drawing.PointF ([float]($cx + $points[$idx] * $s)), ([float]($cy + $points[$idx + 1] * $s))
-    }
-    $path.AddBezier($p[0], $p[1], $p[2], $p[3])
-  }
-  $path.CloseFigure()
-  return $path
-}
-# start, c1, c2, end for each segment (end of one = start of next)
-$skinPts  = @(0,-9, 3,-6, 8.5,-2, 8.5,4.5, 8.5,10, 4.3,12.5, 0,12.5, -4.3,12.5, -8.5,10, -8.5,4.5, -8.5,-2, -3,-6)
-$fleshPts = @(0,-7, 2.6,-4.6, 7,-1.4, 7,4.4, 7,8.8, 3.6,11, 0,11, -3.6,11, -7,8.8, -7,4.4, -7,-1.4, -2.6,-4.6)
-$seedPts  = @(0,-3.5, 2,-1.8, 5.2,0.5, 5.2,4.6, 5.2,7.8, 2.6,9.4, 0,9.4, -2.6,9.4, -5.2,7.8, -5.2,4.6, -5.2,0.5, -2,-1.8)
-
-function Draw-Fig($g, [double]$cx, [double]$cy, [double]$s) {
-  $g.FillRectangle((New-Object System.Drawing.SolidBrush $stem), [float]($cx - 0.8 * $s), [float]($cy - 11 * $s), [float](1.6 * $s), [float](3.6 * $s))
-  $g.FillPath((New-Object System.Drawing.SolidBrush $skinHi), (New-FigPath $skinPts $cx $cy $s))
-  $g.FillPath((New-Object System.Drawing.SolidBrush $flesh), (New-FigPath $fleshPts $cx $cy $s))
-  $g.FillPath((New-Object System.Drawing.SolidBrush $seed), (New-FigPath $seedPts $cx $cy $s))
-  $dot = New-Object System.Drawing.SolidBrush (New-Color '#f1e6cc' 215)
-  foreach ($d in @(@(-2,3), @(1.6,5), @(-0.6,7), @(2.4,2), @(-3,6), @(0,1))) {
-    $r = 0.55 * $s
-    $g.FillEllipse($dot, [float]($cx + $d[0] * $s - $r), [float]($cy + $d[1] * $s - $r), [float](2 * $r), [float](2 * $r))
-  }
-}
+# Keep in sync with brandName in src/config/site.js and the colours in src/styles/tokens.css.
+$brand = 'Studio Name'
+$bg = New-Color '#f6f1ea'; $text = New-Color '#3e0911'; $muted = New-Color '#6b4448'
+$accent = New-Color '#85383e'; $olive = New-Color '#5c6139'; $dusty = New-Color '#c39583'
 
 function New-Canvas([int]$w, [int]$h) {
   $bmp = New-Object System.Drawing.Bitmap $w, $h
@@ -64,61 +34,32 @@ function Save-Png($bmp, $g, [string]$name) {
   Write-Host "  wrote $name"
 }
 
+# Light card: name with the accent dot, a small label, the headline, an accent rule and a subtitle.
 function New-OgImage([string]$name, [string]$kicker, [string]$title, [string]$subtitle) {
   $canvas = New-Canvas 1200 630; $bmp = $canvas[0]; $g = $canvas[1]
-  $g.Clear($night)
-  $glow = New-Object System.Drawing.Drawing2D.GraphicsPath
-  $glow.AddEllipse(560, -120, 860, 860)
-  $glowBrush = New-Object System.Drawing.Drawing2D.PathGradientBrush $glow
-  $glowBrush.CenterColor = New-Color '#2c1a33'; $glowBrush.SurroundColors = @($night)
-  $g.FillPath($glowBrush, $glow)
-
-  Draw-Fig $g 930 300 21
-  Draw-Fig $g 96 78 2.4
-  $g.DrawString('Figlab', (New-Object System.Drawing.Font 'Georgia', 30), (New-Object System.Drawing.SolidBrush $flesh), 124, 56)
-
-  $g.DrawString($kicker, (New-Object System.Drawing.Font 'Consolas', 20), (New-Object System.Drawing.SolidBrush $stem), 72, 214)
-  $titleRect = New-Object System.Drawing.RectangleF 68, 256, 680, 160
-  $g.DrawString($title, (New-Object System.Drawing.Font 'Georgia', 42), (New-Object System.Drawing.SolidBrush $flesh), $titleRect)
-  $g.FillRectangle((New-Object System.Drawing.SolidBrush $seedHi), 72, 418, 64, 5)
-  $g.DrawString($subtitle, (New-Object System.Drawing.Font 'Segoe UI', 22), (New-Object System.Drawing.SolidBrush $inkDim), 72, 440)
+  $g.Clear($bg)
+  $g.FillEllipse((New-Object System.Drawing.SolidBrush $accent), 72, 76, 14, 14)
+  $g.DrawString($brand, (New-Object System.Drawing.Font 'Segoe UI', 26), (New-Object System.Drawing.SolidBrush $text), 96, 60)
+  $g.DrawString($kicker, (New-Object System.Drawing.Font 'Segoe UI Semibold', 18), (New-Object System.Drawing.SolidBrush $olive), 72, 214)
+  $titleRect = New-Object System.Drawing.RectangleF 68, 252, 980, 170
+  $g.DrawString($title, (New-Object System.Drawing.Font 'Segoe UI', 46), (New-Object System.Drawing.SolidBrush $text), $titleRect)
+  $g.FillRectangle((New-Object System.Drawing.SolidBrush $accent), 72, 438, 64, 5)
+  $g.DrawString($subtitle, (New-Object System.Drawing.Font 'Segoe UI', 22), (New-Object System.Drawing.SolidBrush $muted), 72, 462)
   Save-Png $bmp $g $name
 }
 
-# The brand mark: scripts/source/fig.png (black line art) recoloured to white, alpha kept.
-$figSource = [System.Drawing.Image]::FromFile((Join-Path $PSScriptRoot 'source/fig.png'))
-$whiteMatrix = New-Object System.Drawing.Imaging.ColorMatrix
-$whiteMatrix.Matrix00 = 0; $whiteMatrix.Matrix11 = 0; $whiteMatrix.Matrix22 = 0
-$whiteMatrix.Matrix40 = 1; $whiteMatrix.Matrix41 = 1; $whiteMatrix.Matrix42 = 1
-$whiteAttributes = New-Object System.Drawing.Imaging.ImageAttributes
-$whiteAttributes.SetColorMatrix($whiteMatrix)
-
-function Draw-WhiteFig($g, [int]$x, [int]$y, [int]$size) {
-  $dest = New-Object System.Drawing.Rectangle $x, $y, $size, $size
-  $g.DrawImage($figSource, $dest, 0, 0, $figSource.Width, $figSource.Height, [System.Drawing.GraphicsUnit]::Pixel, $whiteAttributes)
-}
-
-# White fig on a transparent background (site header logo).
-function New-WhiteFig([string]$name, [int]$size) {
-  $canvas = New-Canvas $size $size; $bmp = $canvas[0]; $g = $canvas[1]
-  $g.Clear([System.Drawing.Color]::Transparent)
-  Draw-WhiteFig $g 0 0 $size
-  Save-Png $bmp $g $name
-}
-
-# White fig on the dark brand square (favicon, touch icon, logo): readable on light and dark browser tabs.
+# Dusty-pink dot on dark burgundy: readable on light and dark browser tabs.
 function New-Icon([string]$name, [int]$size) {
   $canvas = New-Canvas $size $size; $bmp = $canvas[0]; $g = $canvas[1]
-  $g.Clear($night)
-  $pad = [int]($size * 0.12)
-  Draw-WhiteFig $g $pad $pad ($size - 2 * $pad)
+  $g.Clear($text)
+  $d = [int]($size * 0.36); $o = [int](($size - $d) / 2)
+  $g.FillEllipse((New-Object System.Drawing.SolidBrush $dusty), $o, $o, $d, $d)
   Save-Png $bmp $g $name
 }
 
 Write-Host 'Generating brand images...'
 New-OgImage 'og-hu.png' 'WEBOLDAL KÉSZÍTÉS' "Olcsó, igényes weboldal kisvállalkozásoknak" 'Fix ár · ingyenes látványterv fizetés előtt'
 New-OgImage 'og-en.png' 'WEBSITE DESIGN' 'Affordable websites for small businesses' 'Fixed price · free design draft before you pay'
-New-WhiteFig 'fig-white.png' 96
 New-Icon 'logo-512.png' 512
 New-Icon 'apple-touch-icon.png' 180
 New-Icon 'favicon-48.png' 48
