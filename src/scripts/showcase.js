@@ -35,10 +35,4 @@ function initShowcase() {
       selectProject(tabs[targets[event.key]].dataset.project ?? '', { focusTab: true });
     });
   });
-
-  // Hero cards are real links to #work; they also pick the matching project.
-  document.querySelectorAll('a[data-project-link]').forEach((link) => {
-    if (!(link instanceof HTMLElement)) return;
-    link.addEventListener('click', () => selectProject(link.dataset.projectLink ?? ''));
-  });
 }

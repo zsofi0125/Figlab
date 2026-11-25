@@ -14,7 +14,6 @@
     "desktopPreview": "Desktop preview, scrollable",
     "phonePreview": "Phone preview, scrollable",
     "showcaseTabs": "Selected work",
-    "viewProject": "{name}: view project",
     "themeToDark": "Switch to dark mode",
     "themeToLight": "Switch to light mode"
   },
@@ -47,8 +46,7 @@
       "buildLabel": "to build your site, according to the chosen package",
       "launchedValue": "2",
       "launchedLabel": "websites launched"
-    },
-    "fanCaption": "Recent websites · tap one to look inside"
+    }
   },
   "about": {
     "photoAlt": "Zsófi, the web designer behind {brand}",
@@ -107,8 +105,7 @@
       { "when": "Week 2", "what": "Decision and plan", "text": "If you like the draft, we agree on the fixed price, the pages and the content. You get one short list of what I need from you.", "get": "a fixed price and a one-page plan" },
       { "when": "Weeks 3–4", "what": "Build", "text": "I build every page, fast and mobile-first, with forms and search engine basics.", "get": "a test link for your phone" },
       { "when": "Week 5", "what": "Launch", "text": "Your site goes live on your domain. I show you how to edit it, and I stay on hand afterwards.", "get": "your finished website" }
-    ],
-    "insideHtml": "<b>The most important work is the part you never see.</b> Speed, search engines and accessibility stay out of sight, but they are what makes a website pleasant for your visitors."
+    ]
   },
   "affordable": {
     "eyebrow": "Affordable websites",

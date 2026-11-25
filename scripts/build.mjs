@@ -21,7 +21,7 @@ const DIST = path.join(ROOT, 'dist');
 /** Cascade order matters, so it is explicit. Every file in src/styles must be listed. */
 const STYLE_ORDER = ['tokens', 'base', 'header', 'hero', 'about', 'work', 'guarantee', 'process', 'affordable', 'pricing', 'faq', 'contact', 'footer'];
 /** Helpers first, entry point last. Every file in src/scripts must be listed. */
-const SCRIPT_ORDER = ['utils', 'theme', 'language', 'navigation', 'showcase', 'contact', 'main'];
+const SCRIPT_ORDER = ['utils', 'theme', 'hero-video', 'language', 'navigation', 'showcase', 'contact', 'main'];
 
 /** @param {string} content */
 const contentHash = (content) => createHash('sha256').update(content).digest('hex').slice(0, 10);

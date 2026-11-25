@@ -5,7 +5,7 @@ import { html } from '../../lib/html.js';
 
 /** @param {import('../helpers.js').RenderContext} ctx */
 export function renderProcess(ctx) {
-  const { t, tHtml, tData } = ctx.i18n;
+  const { t, tData } = ctx.i18n;
   /** @type {Stage[]} */
   const stages = tData('process.stages');
   const lastIndex = stages.length - 1;
@@ -24,7 +24,6 @@ export function renderProcess(ctx) {
         </div>
       </li>`)}
     </ol>
-    <p class="inside">${tHtml('process.insideHtml')}</p>
   </div>
 </section>`;
 }

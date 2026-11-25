@@ -14,7 +14,6 @@
     "desktopPreview": "Asztali nézet előnézete, görgethető",
     "phonePreview": "Telefonos nézet előnézete, görgethető",
     "showcaseTabs": "Válogatott munkák",
-    "viewProject": "{name}: munka megtekintése",
     "themeToDark": "Váltás sötét módra",
     "themeToLight": "Váltás világos módra"
   },
@@ -47,8 +46,7 @@
       "buildLabel": "alatt elkészül a választott csomaghoz mérten",
       "launchedValue": "2",
       "launchedLabel": "elkészült weboldal"
-    },
-    "fanCaption": "Friss munkák · kattints bele egybe"
+    }
   },
   "about": {
     "photoAlt": "Zsófi, a {brand} weboldal-készítője",
@@ -107,8 +105,7 @@
       { "when": "2. hét", "what": "Döntés és terv", "text": "Ha tetszik a terv, megbeszéljük a fix árat, az aloldalakat és a tartalmat. Egy rövid listát kapsz arról, mire van szükségem tőled.", "get": "fix árat és egyoldalas tervet" },
       { "when": "3–4. hét", "what": "Építés", "text": "Felépítem az összes oldalt, gyorsan és mobilra szabva, űrlapokkal és a keresőoptimalizálás alapjaival.", "get": "egy tesztlinket a telefonodra" },
       { "when": "5. hét", "what": "Indulás", "text": "Az oldalad élesbe áll a saját domaineden. Megmutatom, hogyan szerkesztheted, és utána is számíthatsz rám.", "get": "a kész weboldaladat" }
-    ],
-    "insideHtml": "<b>A legfontosabb munka az, amit nem látsz.</b> A sebesség, a keresőoptimalizálás és az akadálymentesség rejtve marad, mégis ettől lesz kellemes egy weboldal a látogatóidnak."
+    ]
   },
   "affordable": {
     "eyebrow": "Megfizethető weboldal",

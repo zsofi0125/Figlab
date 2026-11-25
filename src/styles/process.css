@@ -9,9 +9,6 @@
 .st .get b { font-weight: 600; }
 .st.final .get b { color: var(--color-accent); }
 
-.inside { max-width: 52rem; margin-top: 3rem; padding: 1.75rem; border-radius: var(--radius); background: var(--color-surface); }
-.inside p { color: var(--color-text-muted); }
-.inside b { font-weight: 600; color: var(--color-text); }
 
 @media (min-width: 48em) {
   .st { grid-template-columns: 12.5rem minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; align-items: baseline; padding-block: 2rem; }

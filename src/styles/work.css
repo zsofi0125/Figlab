@@ -1,5 +1,11 @@
 /* Showcase: monitor + phone frames, tabs switch projects */
 #work { background: var(--color-surface); }
+/* Dark theme: the hero's video fades out into the page background; continue from that colour into the
+   surface over the first 9rem so the two sections blend instead of meeting at a hard edge. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) #work { background: linear-gradient(to bottom, var(--color-bg), color-mix(in srgb, var(--color-bg) 50%, var(--color-surface)) 3.5rem, var(--color-surface) 9rem); }
+}
+:root[data-theme="dark"] #work { background: linear-gradient(to bottom, var(--color-bg), color-mix(in srgb, var(--color-bg) 50%, var(--color-surface)) 3.5rem, var(--color-surface) 9rem); }
 .work-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1.5rem; }
 .work-head .lead { max-width: 42ch; }
 .tabs { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2.25rem; }
