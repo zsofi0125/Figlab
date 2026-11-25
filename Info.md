@@ -15,7 +15,7 @@ Last updated: 2026-11-25
 - Site name: **not chosen yet.** The fig theme and the name "Figlab" were dropped on 2026-11-25. Until Zsófi picks a new name, the site shows the placeholder "Studio Name". Change it in one place: `brandName` in `src/config/site.js` (and `$brand` in `scripts/generate-images.ps1`, then run `npm run images`).
 - Zsófi's name appears only in the intro (About) section.
 - Look: minimalist and mostly neutral, with one strong accent colour (soiled pink #85383E) and a quiet second one (olive). No themed metaphors or decorative illustrations.
-- Two colour themes. **Light**: warm cream background (#F6F1EA, from Pastel Earth #D7CAB7), dark burgundy text (#3E0911). **Dark**: dark burgundy background, cream text, dusty pink (#C39583) accent. The site follows the visitor's browser setting, and a moon/sun button in the header switches between them; the choice is remembered. All colours are in `src/styles/tokens.css`.
+- Two colour themes. **Light**: warm cream background (#F6F1EA, from Pastel Earth #D7CAB7), dark burgundy text (#3E0911). **Dark**: warm espresso background (#231C1A, chosen 2026-11-25 over dark burgundy, deep wine and green kelp), cream text, dusty pink (#C39583) accent. The site follows the visitor's browser setting, and a moon/sun button in the header switches between them; the choice is remembered. All colours are in `src/styles/tokens.css`.
 - Fonts: Montserrat Alternates (headings) and Montserrat (body text). Kept for now; new font pairings to be suggested once the colours are settled.
 
 ## Format and files

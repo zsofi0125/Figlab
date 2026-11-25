@@ -52,7 +52,7 @@ export const siteConfig = Object.freeze({
   founderName: 'Zsófi',
   currency: 'HUF',
   /** Browser UI colour per theme; matches --color-bg in styles/tokens.css. */
-  themeColor: Object.freeze({ light: '#f6f1ea', dark: '#3e0911' }),
+  themeColor: Object.freeze({ light: '#f6f1ea', dark: '#231c1a' }),
   googleSiteVerification: process.env.GOOGLE_SITE_VERIFICATION || '',
   /** @type {LocaleCode} */
   defaultLocale: 'hu',

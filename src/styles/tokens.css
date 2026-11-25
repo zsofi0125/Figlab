@@ -35,9 +35,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --color-bg: #3e0911;
-    --color-surface: #4a1219;
-    --color-surface-strong: #582419;
+    --color-bg: #231c1a;
+    --color-surface: #2d2522;
+    --color-surface-strong: #3a2f2b;
     --color-text: #f3ece2;
     --color-text-muted: #d7cab7;
     --color-accent: #c39583;
@@ -52,9 +52,9 @@
   }
 }
 :root[data-theme="dark"] {
-  --color-bg: #3e0911;
-  --color-surface: #4a1219;
-  --color-surface-strong: #582419;
+  --color-bg: #231c1a;
+  --color-surface: #2d2522;
+  --color-surface-strong: #3a2f2b;
   --color-text: #f3ece2;
   --color-text-muted: #d7cab7;
   --color-accent: #c39583;
