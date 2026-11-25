@@ -50,7 +50,7 @@ Upload the contents of `dist/` to any static host. On the host, set these up:
 
 1. One canonical host: 301-redirect `www.` to the bare domain (or the other way round), and `http` to `https`.
 2. Serve `404.html` for unknown URLs.
-3. Cache `assets/css/`, `assets/js/` and `assets/media/` for a long time (for example `Cache-Control: public, max-age=31536000, immutable`). Their file names change whenever their content changes.
+3. Cache `assets/css/`, `assets/js/`, `assets/media/` and `assets/fonts/` for a long time (for example `Cache-Control: public, max-age=31536000, immutable`). Their file names change whenever their content changes (font files carry their version, e.g. `manrope-v23-latin.woff2`).
 
 ## Hero video
 

@@ -21,14 +21,14 @@ html:not(.js) .tabs { display: none; }
 .devices { position: relative; padding-right: 12%; padding-bottom: 2.5rem; }
 html:not(.js) .devices { display: none; }
 .monitor { position: relative; }
-.monitor .bezel { padding: 8px 8px 18px; border-radius: 10px; background: var(--color-device); box-shadow: var(--shadow-soft); }
-.monitor .bezel::after { content: ""; display: block; width: 7px; height: 7px; margin: 9px auto -16px; border-radius: 50%; background: #3a3033; }
-.monitor .neck { width: 16%; height: 2rem; margin: 0 auto; background: linear-gradient(90deg, #1c1517, #2e2628, #1c1517); clip-path: polygon(18% 0, 82% 0, 100% 100%, 0 100%); }
-.monitor .foot { width: 34%; height: 10px; margin: 0 auto; border-radius: 6px 6px 2px 2px; background: #2a2224; }
+.monitor .bezel { padding: 8px 8px 18px; border-radius: 10px; background: var(--device-frame); box-shadow: var(--shadow-soft), inset 0 0 0 1px var(--device-edge); }
+.monitor .bezel::after { content: ""; display: block; width: 7px; height: 7px; margin: 9px auto -16px; border-radius: 50%; background: var(--device-dot); }
+.monitor .neck { width: 16%; height: 2rem; margin: 0 auto; background: var(--device-stand); clip-path: polygon(18% 0, 82% 0, 100% 100%, 0 100%); }
+.monitor .foot { width: 34%; height: 10px; margin: 0 auto; border-radius: 6px 6px 2px 2px; background: var(--device-foot); }
 .vp { position: relative; overflow-y: auto; overflow-x: hidden; background: #fff; scrollbar-width: none; overscroll-behavior: contain; }
 .vp::-webkit-scrollbar { display: none; }
 .monitor .vp { aspect-ratio: 16 / 10; border-radius: 4px; }
-.phone { position: absolute; right: 0; bottom: 0; z-index: 3; width: 34%; min-width: 7.5rem; padding: 6px; border-radius: 22px; background: var(--color-device); box-shadow: var(--shadow-soft), inset 0 0 0 1.5px #3a3033; }
+.phone { position: absolute; right: 0; bottom: 0; z-index: 3; width: 34%; min-width: 7.5rem; padding: 6px; border-radius: 22px; background: var(--device-phone-frame); box-shadow: var(--shadow-soft), inset 0 0 0 1.5px var(--device-phone-edge); }
 .phone .vp { aspect-ratio: 9 / 19.5; border-radius: 17px; }
 .phone .notch { position: absolute; top: 10px; left: 50%; z-index: 4; width: 32%; height: 10px; transform: translateX(-50%); border-radius: 10px; background: var(--color-device); }
 .dev-label { position: absolute; right: 0; bottom: -1.5rem; font-family: var(--f-mono); font-size: .7rem; letter-spacing: .06em; color: var(--color-text-muted); }

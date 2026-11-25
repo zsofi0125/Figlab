@@ -24,6 +24,8 @@ main:focus { outline: none; }
 h1, h2, h3, h4 { margin: 0; }
 h1, h2, h3 { font-family: var(--f-display); font-weight: 500; line-height: 1.05; text-wrap: balance; letter-spacing: -.01em; }
 h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); }
+/* The highlighted word in a headline: same family, bold, in the accent colour (set per section). */
+h1 em, h2 em { font-weight: 700; }
 p { margin: 0; }
 :where(ul[role="list"], ol[role="list"]) { list-style: none; margin: 0; padding: 0; }
 

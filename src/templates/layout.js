@@ -16,6 +16,16 @@ import { renderSeoHead } from './seo/meta.js';
 const THEME_BOOTSTRAP = "document.documentElement.classList.add('js');try{var t=localStorage.getItem('site-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}";
 
 /**
+ * Manrope is the headline (LCP) and body font, so it is preloaded; the mono label font is not. Hungarian
+ * text needs the latin-ext subset (ő, ű) straight away, other locales only the latin one.
+ * @param {import('../config/site.js').LocaleConfig} locale
+ */
+const fontPreloads = (locale) => [
+  'assets/fonts/manrope-v23-latin.woff2',
+  ...(locale.code === 'hu' ? ['assets/fonts/manrope-v23-latin-ext.woff2'] : []),
+];
+
+/**
  * The HTML document shell shared by every page.
  * @param {import('./helpers.js').RenderContext} ctx
  * @param {object} options
@@ -26,7 +36,6 @@ const THEME_BOOTSTRAP = "document.documentElement.classList.add('js');try{var t=
  */
 export function renderDocument(ctx, { meta, assets, body, resolveAsset = (path) => assetHref(ctx, path) }) {
   const { config, locale } = ctx;
-  const fontsUrl = 'https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap';
   return `<!doctype html>
 ${html`<html lang="${locale.htmlLang}" dir="ltr">
 <head>
@@ -40,10 +49,8 @@ ${renderSeoHead(ctx, meta)}
 <link rel="icon" href="${resolveAsset('assets/img/favicon-32.png')}" sizes="32x32" type="image/png">
 <link rel="icon" href="${resolveAsset('assets/img/favicon-48.png')}" sizes="48x48" type="image/png">
 <link rel="apple-touch-icon" href="${resolveAsset('assets/img/apple-touch-icon.png')}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="${fontsUrl}">
-<link rel="stylesheet" href="${resolveAsset(assets.css)}">
+${fontPreloads(locale).map((file) => html`<link rel="preload" href="${resolveAsset(file)}" as="font" type="font/woff2" crossorigin>
+`)}<link rel="stylesheet" href="${resolveAsset(assets.css)}">
 <script>${raw(THEME_BOOTSTRAP)}</script>
 <script src="${resolveAsset(assets.js)}" defer></script>
 </head>

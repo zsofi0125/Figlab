@@ -17,13 +17,21 @@
   --color-line: rgba(62, 9, 17, .14);
   --color-line-strong: rgba(62, 9, 17, .32);
   --color-draft: #8a6a1c;            /* staging-only placeholder markers */
-  --color-device: #1c1517;           /* monitor and phone frames look the same in both themes */
+  --color-device: #1c1517;           /* screen-black parts: phone notch */
+  /* Monitor and phone frames in the showcase: near-black in the light theme, brushed light-grey metal in the dark. */
+  --device-frame: var(--color-device);
+  --device-edge: #3a3033;
+  --device-dot: #3a3033;
+  --device-stand: linear-gradient(90deg, #1c1517, #2e2628, #1c1517);
+  --device-foot: #2a2224;
+  --device-phone-frame: var(--device-frame);   /* the phone can differ from the monitor */
+  --device-phone-edge: var(--device-edge);
   --shadow-soft: 0 18px 40px -18px rgba(62, 9, 17, .28);
   color-scheme: light;
 
-  --f-display: "Montserrat Alternates", "Montserrat", system-ui, sans-serif;
-  --f-body: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --f-mono: var(--f-body);
+  --f-display: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
 
   --radius: 1rem;
   --tap: 2.75rem;          /* 44px minimum touch target */
@@ -47,6 +55,13 @@
     --color-line: rgba(243, 236, 226, .14);
     --color-line-strong: rgba(243, 236, 226, .3);
     --color-draft: #d9b45e;
+    --device-frame: linear-gradient(150deg, #d6d3cf 0%, #aeaaa5 38%, #c8c4bf 62%, #95918c 100%);
+    --device-edge: #e8e5e1;
+    --device-dot: #6f6b67;
+    --device-stand: linear-gradient(90deg, #8f8b86, #d2cec9 50%, #8f8b86);
+    --device-foot: linear-gradient(180deg, #c9c5c0, #8f8b86);
+    --device-phone-frame: linear-gradient(150deg, #7d7975 0%, #575451 40%, #6e6a67 65%, #484543 100%);
+    --device-phone-edge: #9b9793;
     --shadow-soft: 0 18px 40px -18px rgba(0, 0, 0, .55);
     color-scheme: dark;
   }
@@ -64,6 +79,13 @@
   --color-line: rgba(243, 236, 226, .14);
   --color-line-strong: rgba(243, 236, 226, .3);
   --color-draft: #d9b45e;
+  --device-frame: linear-gradient(150deg, #d6d3cf 0%, #aeaaa5 38%, #c8c4bf 62%, #95918c 100%);
+  --device-edge: #e8e5e1;
+  --device-dot: #6f6b67;
+  --device-stand: linear-gradient(90deg, #8f8b86, #d2cec9 50%, #8f8b86);
+  --device-foot: linear-gradient(180deg, #c9c5c0, #8f8b86);
+  --device-phone-frame: linear-gradient(150deg, #7d7975 0%, #575451 40%, #6e6a67 65%, #484543 100%);
+  --device-phone-edge: #9b9793;
   --shadow-soft: 0 18px 40px -18px rgba(0, 0, 0, .55);
   color-scheme: dark;
 }
