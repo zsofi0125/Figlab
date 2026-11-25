@@ -1,12 +1,12 @@
 // @ts-check
 import { html } from '../../lib/html.js';
-import { assetHref, placeholder } from '../helpers.js';
+import { mediaHref, placeholder } from '../helpers.js';
 
 /** @param {import('../helpers.js').RenderContext} ctx */
 export function renderHero(ctx) {
   const { t, tHtml, formatPrice } = ctx.i18n;
   return html`<section class="hero" id="top" aria-labelledby="hero-title">
-  <div class="hero-media" aria-hidden="true"><div class="hero-videos" data-hero-video data-src-webm="${assetHref(ctx, 'assets/video/hero-dark.webm')}" data-window-webm="0.2 8.3" data-src-mp4="${assetHref(ctx, 'assets/video/hero-dark.mp4')}" data-window-mp4="0 9.95" data-crossfade="1.2">${[0, 1].map(() => html`<video class="hero-video" muted playsinline preload="none" disablepictureinpicture></video>`)}</div></div>
+  <div class="hero-media" aria-hidden="true"><div class="hero-videos" data-hero-video data-src-webm="${mediaHref(ctx, 'hero-dark.webm')}" data-window-webm="0 8.47" data-src-mp4="${mediaHref(ctx, 'hero-dark.mp4')}" data-window-mp4="0 8.47" data-crossfade="0.08">${[0, 1].map(() => html`<video class="hero-video" muted playsinline preload="none" disablepictureinpicture></video>`)}</div></div>
   <div class="wrap">
     <div>
       <h1 id="hero-title"><span class="hero-kicker">${t('hero.kicker')}</span> <span class="hero-headline">${tHtml('hero.titleHtml')}</span></h1>

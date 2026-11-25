@@ -8,6 +8,7 @@ import { html } from '../lib/html.js';
  * @property {import('../config/site.js').LocaleConfig} locale
  * @property {boolean} isDraft  Staging build: shows the draft banner and placeholder markers.
  * @property {number} year
+ * @property {Record<string, string>} media  src/media file name → hashed path in dist (see publishMedia in scripts/build.mjs)
  */
 
 /**
@@ -41,4 +42,11 @@ export function localeHref(ctx, target) {
 /** Root-relative static asset path, resolved for the current locale's depth. @param {RenderContext} ctx @param {string} path */
 export function assetHref(ctx, path) {
   return ctx.locale.toRoot + path;
+}
+
+/** Link to a file from src/media by its source name; fails the build if the file is missing. @param {RenderContext} ctx @param {string} name */
+export function mediaHref(ctx, name) {
+  const published = ctx.media[name];
+  if (!published) throw new Error(`src/media/${name} is missing.`);
+  return assetHref(ctx, published);
 }

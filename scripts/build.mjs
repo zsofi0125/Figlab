@@ -96,6 +96,27 @@ function assertDictionaryParity(/** @type {Map<string, Record<string, unknown>>}
   }
 }
 
+/**
+ * Large media (videos) get a content hash in the file name, like the CSS and JS bundles, so hosts can
+ * cache them for a year and a changed file is still picked up at once.
+ * @returns {Promise<Record<string, string>>} source file name → published path
+ */
+async function publishMedia() {
+  const directory = path.join(SRC, 'media');
+  /** @type {Record<string, string>} */
+  const published = {};
+  for (const name of await readdir(directory)) {
+    const content = await readFile(path.join(directory, name));
+    const extension = path.extname(name);
+    const hash = createHash('sha256').update(content).digest('hex').slice(0, 10);
+    const target = `assets/media/${path.basename(name, extension)}.${hash}${extension}`;
+    await mkdir(path.dirname(path.join(DIST, target)), { recursive: true });
+    await writeFile(path.join(DIST, target), content);
+    published[name] = target;
+  }
+  return published;
+}
+
 async function copyStaticFiles() {
   const staticDir = path.join(SRC, 'static');
   await cp(staticDir, DIST, { recursive: true });
@@ -120,7 +141,7 @@ async function build() {
   for (const locale of siteConfig.locales) dictionaries.set(locale.code, await loadDictionary(locale.code));
   assertDictionaryParity(dictionaries);
 
-  const [css, js] = await Promise.all([bundleStyles(), bundleScripts(), copyStaticFiles()]);
+  const [css, js, media] = await Promise.all([bundleStyles(), bundleScripts(), publishMedia(), copyStaticFiles()]);
   const assets = { css, js };
   const year = new Date().getFullYear();
   const isDraft = !siteConfig.isProduction;
@@ -131,6 +152,7 @@ async function build() {
     locale,
     isDraft,
     year,
+    media,
   }));
 
   /** @type {{ file: string, html: string, isIndexable: boolean, expectAlternates: boolean }[]} */

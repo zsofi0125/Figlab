@@ -11,6 +11,7 @@ Portfolio site, built as static HTML in Hungarian (`/`) and English (`/en/`). Th
 | `npm run build:staging` | Staging build only |
 | `npm run preview` | Serves whatever is in `dist/` |
 | `npm run images` | Regenerates the social share images, logo and icons (Windows only) |
+| `npm run video` | Re-encodes the hero background video into small, seamlessly looping WebM + MP4 files (needs ffmpeg, see "Hero video") |
 
 Copy `.env.example` to `.env` and set `SITE_URL` to the real domain before the production build. Canonical URLs, hreflang links, Open Graph tags, JSON-LD and the sitemap are all built from it.
 
@@ -30,8 +31,10 @@ src/
     seo/                 <head> meta, JSON-LD, sitemap + robots
   styles/                mobile-first CSS, one file per section (bundled in the order set in scripts/build.mjs)
   scripts/               browser JS, one feature per file (bundled into one script)
+  media/                 videos; published as assets/media/<name>.<hash>.<ext>
   static/                copied into dist/ unchanged (favicon, images)
-scripts/                 build, preview server, SEO audit, image generator
+scripts/                 build, preview server, SEO audit, image generator, video encoder
+  source/                originals the generators start from (not published)
 ```
 
 ## Common edits
@@ -47,4 +50,18 @@ Upload the contents of `dist/` to any static host. On the host, set these up:
 
 1. One canonical host: 301-redirect `www.` to the bare domain (or the other way round), and `http` to `https`.
 2. Serve `404.html` for unknown URLs.
-3. Cache `assets/css/` and `assets/js/` for a long time. Their file names change whenever their content changes.
+3. Cache `assets/css/`, `assets/js/` and `assets/media/` for a long time (for example `Cache-Control: public, max-age=31536000, immutable`). Their file names change whenever their content changes.
+
+## Hero video
+
+In the dark theme the hero plays `src/media/hero-dark.webm` (or the `.mp4` in Safari versions without VP9). `src/scripts/hero-video.js` only downloads it after the page has loaded and the browser is idle, pauses it when the hero is off screen or the tab is hidden, and skips it entirely for reduced-motion, data-saver, slow-connection (3G or slower) and low-memory (2 GB or less) visitors. They keep the still poster `src/static/assets/img/hero-dark-poster.webp`.
+
+To replace or re-encode the video:
+
+1. Install ffmpeg once. On Windows, run `winget install Gyan.FFmpeg`, then open a new terminal and check that `ffmpeg -version` works.
+2. Put the original clip at `scripts/source/hero-dark-original.mp4`.
+3. Run `npm run video`. It cross-fades the clip's last 1.5 s into its start so it loops seamlessly, scales it to 960 px wide at 24 fps, removes any audio, and writes `hero-dark.webm` and `hero-dark.mp4` into `src/media/`.
+4. Copy the `data-window-*` and `data-crossfade` values the script prints into `src/templates/components/hero.js`, then run `npm run build`.
+5. Refresh the poster from the new first frame: `ffmpeg -y -i src/media/hero-dark.webm -frames:v 1 -vf scale=1280:-2 -c:v libwebp -quality 72 src/static/assets/img/hero-dark-poster.webp`.
+
+If `ffmpeg` is "not found" right after installing, open a new terminal (or restart VS Code) so it picks up the updated PATH.

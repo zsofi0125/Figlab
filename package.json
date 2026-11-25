@@ -12,6 +12,7 @@
     "build:staging": "node --env-file-if-exists=.env scripts/build.mjs --staging",
     "preview": "node scripts/preview.mjs",
     "dev": "npm run build:staging && npm run preview",
-    "images": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/generate-images.ps1"
+    "images": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/generate-images.ps1",
+    "video": "node scripts/encode-video.mjs"
   }
 }
