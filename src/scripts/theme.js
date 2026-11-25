@@ -18,13 +18,21 @@ function initThemeToggle() {
     const label = isDark() ? button.dataset.labelToLight : button.dataset.labelToDark;
     if (label) button.setAttribute('aria-label', label);
   };
+  // The theme-color tags pick their value by the device setting; a manual choice must override both.
+  const syncBrowserChrome = () => {
+    if (!root.dataset.theme) return;
+    const background = getComputedStyle(root).getPropertyValue('--color-bg').trim();
+    document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => meta.setAttribute('content', background));
+  };
 
   button.addEventListener('click', () => {
     const next = isDark() ? 'light' : 'dark';
     root.dataset.theme = next;
     safeStorage.set(THEME_STORAGE_KEY, next);
     updateLabel();
+    syncBrowserChrome();
   });
   systemDark.addEventListener('change', updateLabel);
   updateLabel();
+  syncBrowserChrome();
 }
