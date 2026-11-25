@@ -1,38 +1,35 @@
 /* Pricing: three one-time plans, two monthly plans */
 .pricing .lead { margin-top: 1.125rem; }
 .plans { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; margin-top: 3.25rem; align-items: stretch; }
-.plan { position: relative; display: flex; flex-direction: column; padding: 1.875rem 1.75rem; border-radius: 22px; border: 1px solid var(--line); background: rgba(58, 36, 64, .35); }
-.plan .tier { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--stem); }
-.plan h3 { margin-top: .625rem; font-family: var(--f-body); font-weight: 700; font-size: 1.3rem; line-height: 1.2; }
-.plan .for { margin-top: .375rem; font-size: .93rem; color: var(--ink-dim); }
-.price { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem; margin-top: 1.375rem; font-variant-numeric: tabular-nums; }
-.price small { font-size: .85rem; color: var(--ink-dim); }
-.price b { font-family: var(--f-display); font-weight: 400; font-size: clamp(2.4rem, 7vw, 3rem); line-height: 1; color: var(--flesh); white-space: nowrap; }
-.plan .time { margin-top: .375rem; font-size: .85rem; color: var(--ink-dim); }
+.plan { position: relative; display: flex; flex-direction: column; padding: 2rem 1.75rem; border-radius: var(--radius); border: 1px solid var(--color-line); }
+.plan .tier { font-family: var(--f-mono); font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--color-secondary); }
+.plan h3 { margin-top: .625rem; font-family: var(--f-body); font-weight: 600; font-size: 1.3rem; line-height: 1.2; }
+.plan .for { margin-top: .375rem; font-size: .93rem; color: var(--color-text-muted); }
+.price { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem; margin-top: 1.5rem; font-variant-numeric: tabular-nums; }
+.price small { font-size: .85rem; color: var(--color-text-muted); }
+.price b { font-family: var(--f-display); font-weight: 400; font-size: clamp(2.4rem, 7vw, 3rem); line-height: 1; white-space: nowrap; }
+.plan .time { margin-top: .375rem; font-size: .85rem; color: var(--color-text-muted); }
 .plan ul { flex: 1; display: grid; align-content: start; gap: .625rem; margin: 1.5rem 0 1.75rem; font-size: .95rem; }
 .plan li { display: grid; grid-template-columns: 18px 1fr; gap: .625rem; }
-.plan li::before { content: ""; width: 7px; height: 7px; margin: 9px 0 0 4px; border-radius: 50%; background: var(--seed-hi); box-shadow: 0 0 0 3px rgba(224, 68, 86, .18); }
-.plan.ripe { background: var(--skin); border-color: var(--skin-hi); box-shadow: 0 30px 60px -20px rgba(184, 31, 51, .35); }
-.plan .badge { position: absolute; top: -13px; left: 1.75rem; padding: 4px 10px; border-radius: 999px; font-family: var(--f-mono); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; background: var(--seed); color: var(--flesh); }
+.plan li::before { content: ""; width: 6px; height: 6px; margin: 10px 0 0 4px; border-radius: 50%; background: var(--color-accent); }
+.plan.is-featured { background: var(--color-surface); border-color: var(--color-accent); }
+.plan .badge { position: absolute; top: -13px; left: 1.75rem; padding: 4px 10px; border-radius: 999px; font-family: var(--f-mono); font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; background: var(--color-accent); color: var(--color-on-accent); }
 
-.free-note { display: flex; gap: .875rem; align-items: center; margin-top: 1.75rem; padding: 1rem 1.375rem; border-radius: 16px; background: rgba(184, 31, 51, .14); border: 1px solid rgba(224, 68, 86, .4); }
-.free-note svg { flex: none; width: 2.125rem; height: 2.125rem; }
-.free-note b { color: var(--flesh); }
+.free-note { margin-top: 1.75rem; padding: 1rem 1.375rem; border-radius: var(--radius); background: var(--color-surface); border-left: 3px solid var(--color-accent); }
 
-.monthly { margin-top: 2.75rem; }
+.monthly { margin-top: 3.5rem; }
 .monthly-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem; }
 .monthly-head h3 { font-size: 2rem; }
-.monthly-head p { max-width: 52ch; font-size: .95rem; color: var(--ink-dim); }
+.monthly-head p { max-width: 52ch; font-size: .95rem; color: var(--color-text-muted); }
 .mplans { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; margin-top: 1.25rem; }
-.mplan { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.25rem; align-items: flex-start; padding: 1.5rem 1.625rem; border-radius: 18px; background: var(--flesh); color: var(--plum); }
-.mplan .tier { font-family: var(--f-mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--wine); }
-.mplan h4 { margin-top: .375rem; font-family: var(--f-body); font-weight: 700; font-size: 1.15rem; }
-.mplan ul { display: grid; gap: .25rem; margin: .75rem 0 0; padding: 0 0 0 1.125rem; font-size: .93rem; color: #4a3a44; }
+.mplan { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.25rem; align-items: flex-start; padding: 1.5rem 1.625rem; border-radius: var(--radius); background: var(--color-surface); }
+.mplan .tier { font-family: var(--f-mono); font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--color-secondary); }
+.mplan h4 { margin-top: .375rem; font-family: var(--f-body); font-weight: 600; font-size: 1.15rem; }
+.mplan ul { display: grid; gap: .25rem; margin: .75rem 0 0; padding: 0 0 0 1.125rem; font-size: .93rem; color: var(--color-text-muted); }
 .mplan .p { font-family: var(--f-display); font-size: 1.9rem; line-height: 1; white-space: nowrap; text-align: right; font-variant-numeric: tabular-nums; }
-.mplan .p small { display: block; margin-top: .375rem; font-family: var(--f-body); font-size: .82rem; color: var(--plum-soft); }
-.is-draft .mplan .ph { border-bottom-color: var(--wine); }
+.mplan .p small { display: block; margin-top: .375rem; font-family: var(--f-body); font-size: .82rem; color: var(--color-text-muted); }
 
-.fine { display: flex; flex-wrap: wrap; gap: .5rem 1.625rem; margin-top: 1.375rem; font-size: .88rem; color: var(--ink-dim); }
+.fine { display: flex; flex-wrap: wrap; gap: .5rem 1.625rem; margin-top: 1.5rem; font-size: .88rem; color: var(--color-text-muted); }
 
 @media (min-width: 48em) {
   .mplans { grid-template-columns: repeat(2, minmax(0, 1fr)); }

@@ -1,7 +1,6 @@
 // @ts-check
 import { html } from '../../lib/html.js';
 import { assetHref, placeholderTag } from '../helpers.js';
-import { icon } from './icons.js';
 
 /** @typedef {{ title: string, text: string }} PromiseItem */
 
@@ -25,7 +24,6 @@ export function renderAbout(ctx) {
       </div>
       <ul class="promises" role="list">
         ${promises.map((promise) => html`<li>
-          ${icon('leaf')}
           <h3>${promise.title}</h3>
           <p>${promise.text}</p>
         </li>`)}

@@ -1,12 +1,11 @@
 /* Footer + 404 */
-.site-footer { padding-block: 1.75rem; font-size: .85rem; color: var(--ink-dim); }
+.site-footer { padding-block: 1.75rem; font-size: .85rem; color: var(--color-text-muted); }
 .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .5rem 1rem; }
 .site-footer ul { display: flex; flex-wrap: wrap; gap: 0 1rem; }
 .site-footer a { display: inline-flex; align-items: center; min-height: var(--tap); text-decoration: none; }
-.site-footer a:hover { color: var(--ink); text-decoration: underline; }
+.site-footer a:hover { color: var(--color-text); text-decoration: underline; }
 
 .not-found { min-height: 100svh; display: grid; align-items: center; padding-block: 4rem; }
-.not-found .wrap { display: grid; gap: 2.5rem; }
-.not-found-icon { width: 4rem; height: 6rem; }
-.not-found-title { font-family: var(--f-display); font-size: clamp(2.2rem, 6vw, 3.6rem); line-height: 1.05; }
+.not-found .wrap { display: grid; gap: 3rem; }
+.not-found-title { font-family: var(--f-display); font-weight: 500; font-size: clamp(2.2rem, 6vw, 3.6rem); line-height: 1.05; }
 .not-found-block .lead { margin-block: 1rem 1.5rem; }

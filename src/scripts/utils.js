@@ -60,6 +60,6 @@ function runFeature(name, init) {
   try {
     init();
   } catch (error) {
-    console.error(`[figlab] ${name} failed to start`, error);
+    console.error(`[site] ${name} failed to start`, error);
   }
 }

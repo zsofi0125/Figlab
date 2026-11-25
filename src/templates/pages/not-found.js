@@ -1,7 +1,6 @@
 // @ts-check
 import { html } from '../../lib/html.js';
 import { renderDocument } from '../layout.js';
-import { icon } from '../components/icons.js';
 
 /**
  * Bilingual 404. Served from any URL depth, so every asset path is root-absolute.
@@ -13,14 +12,13 @@ import { icon } from '../components/icons.js';
 export function renderNotFoundPage(ctx, allContexts, assets) {
   const body = html`<main id="main" class="not-found" tabindex="-1">
   <div class="wrap">
-    ${icon('fig-green', 'not-found-icon')}
     ${allContexts.map((localeCtx, index) => {
       const { t } = localeCtx.i18n;
       const Heading = index === 0 ? 'h1' : 'p';
       return html`<div lang="${localeCtx.locale.htmlLang}" class="not-found-block">
         <${Heading} class="not-found-title">${t('notFound.heading')}</${Heading}>
         <p class="lead">${t('notFound.text')}</p>
-        <a class="btn btn-seed" href="${localeCtx.locale.path}">${t('notFound.backHome')}</a>
+        <a class="btn btn-primary" href="${localeCtx.locale.path}">${t('notFound.backHome')}</a>
       </div>`;
     })}
   </div>

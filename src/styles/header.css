@@ -1,47 +1,48 @@
 /* Staging draft banner */
-.draft { background: var(--stem); color: var(--night); font-family: var(--f-mono); font-size: .75rem; letter-spacing: .04em; }
+.draft { background: var(--color-draft); color: var(--color-bg); font-family: var(--f-mono); font-size: .75rem; letter-spacing: .04em; }
 .draft .wrap { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; justify-content: space-between; padding-block: .25rem; }
-.draft-sample { border-bottom: 1.5px dashed var(--night); }
-.draft button { min-height: var(--tap); background: var(--night); color: var(--flesh); border: 0; border-radius: 3px; padding: .25rem .75rem; cursor: pointer; font-family: inherit; font-size: inherit; }
+.draft-sample { border-bottom: 1.5px dashed currentColor; }
+.draft button { min-height: var(--tap); background: var(--color-bg); color: var(--color-text); border: 0; border-radius: 3px; padding: .25rem .75rem; cursor: pointer; font-family: inherit; font-size: inherit; }
 
 /* Site header */
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--safe-top); z-index: 30; background: var(--night); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--safe-top); z-index: 30; background: var(--color-bg); }
 .site-header {
   position: sticky; top: var(--safe-top); z-index: 20;
-  background: rgba(20, 14, 23, .9); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--color-bg) 92%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-line);
 }
-.site-nav { position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem; padding-block: .875rem; }
-.mark { display: flex; align-items: center; gap: .625rem; min-height: var(--tap); font-family: var(--f-display); font-size: 1.35rem; text-decoration: none; }
-.mark img { width: 1.75rem; height: 1.75rem; }
+.site-nav { position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; padding-block: .875rem; }
+.mark { display: flex; align-items: center; gap: .5rem; min-height: var(--tap); font-family: var(--f-display); font-weight: 500; font-size: 1.1rem; text-decoration: none; }
+/* A small accent dot stands in for a logo until the new name and mark are chosen. */
+.mark::before { content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: var(--color-accent); }
 
 /* Without JS the links simply wrap onto their own row; with JS they collapse behind the menu button. */
 .nav-links { order: 3; width: 100%; display: flex; flex-wrap: wrap; gap: 0 1.25rem; font-size: .95rem; }
-.nav-links a { display: inline-flex; align-items: center; min-height: var(--tap); text-decoration: none; color: var(--ink-dim); }
-.nav-links a:hover { color: var(--ink); }
+.nav-links a { display: inline-flex; align-items: center; min-height: var(--tap); text-decoration: none; color: var(--color-text-muted); }
+.nav-links a:hover { color: var(--color-text); }
 .js .nav-links {
   display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column;
-  padding: .5rem var(--gutter-end) 1rem var(--gutter); background: var(--night); border-bottom: 1px solid var(--line);
+  padding: .5rem var(--gutter-end) 1rem var(--gutter); background: var(--color-bg); border-bottom: 1px solid var(--color-line);
 }
 .js .nav-links.is-open { display: flex; }
 .js .nav-links a { width: 100%; font-size: 1.05rem; }
 
-.nav-right { display: flex; align-items: center; gap: .625rem; margin-left: auto; }
+.nav-right { display: flex; align-items: center; gap: .375rem; margin-left: auto; }
 .site-nav .btn-sm { display: none; }
 
-/* Header call to action: wider and in capitals; hover behaviour is the normal .btn-seed one. */
+/* Header call to action: wider and in capitals; hover behaviour is the normal .btn-primary one. */
 .btn-cta { min-width: 9rem; padding-inline: 1.75rem; text-transform: uppercase; letter-spacing: .1em; font-size: .82rem; font-weight: 700; }
 
 /* Same button at the end of the mobile menu; from 30em up the header already shows it. */
 .nav-cta-item { padding-block: .5rem 0; }
 .js .nav-links .nav-cta-item a.btn-cta { display: inline-flex; width: auto; min-height: var(--tap); font-size: .82rem; }
-.nav-links a.btn-cta, .nav-links a.btn-cta:hover { color: var(--flesh); }
+.nav-links a.btn-cta, .nav-links a.btn-cta:hover { color: var(--color-on-accent); }
 @media (min-width: 30em) { .nav-cta-item { display: none; } }
 
 .nav-toggle { display: none; }
 .js .nav-toggle {
   display: inline-grid; place-items: center; width: var(--tap); height: var(--tap);
-  background: none; border: 1.5px solid var(--line); border-radius: 999px; color: var(--ink); cursor: pointer;
+  background: none; border: 1.5px solid var(--color-line-strong); border-radius: 999px; color: var(--color-text); cursor: pointer;
 }
 .nav-toggle-bars, .nav-toggle-bars::before, .nav-toggle-bars::after { display: block; width: 1.125rem; height: 2px; background: currentColor; border-radius: 2px; transition: transform .2s; }
 .nav-toggle-bars { position: relative; }
@@ -52,25 +53,45 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--safe
 .nav-toggle[aria-expanded="true"] .nav-toggle-bars::before { transform: translateY(6px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] .nav-toggle-bars::after { transform: translateY(-6px) rotate(-45deg); }
 
-/* Language switch: two real links (crawlers follow them) with a cream pill behind the current one.
+/* Language switch: two real links (crawlers follow them) with a pill behind the current one.
    --i (0 or 1) is the current language; JS moves it on click so the pill slides before the page changes. */
-.lang { position: relative; display: inline-grid; grid-template-columns: 1fr 1fr; border: 1.5px solid var(--line); border-radius: 999px; }
+.lang { position: relative; display: inline-grid; grid-template-columns: 1fr 1fr; border: 1.5px solid var(--color-line-strong); border-radius: 999px; }
 .lang::before {
   content: ""; position: absolute; top: 3px; bottom: 3px; left: 3px; width: calc(50% - 3px);
-  border-radius: 999px; background: var(--flesh);
+  border-radius: 999px; background: var(--color-text);
   transform: translateX(calc(var(--i, 0) * 100%));
   transition: transform .55s cubic-bezier(.45, .05, .2, 1);
 }
 .lang a {
   position: relative; display: inline-flex; align-items: center; justify-content: center; min-width: 2.25rem; min-height: calc(var(--tap) - 3px);
-  font: 700 .72rem var(--f-body); letter-spacing: .06em; text-decoration: none; color: var(--ink-dim); transition: color .3s;
+  font: 700 .72rem var(--f-body); letter-spacing: .06em; text-decoration: none; color: var(--color-text-muted); transition: color .3s;
 }
-.lang a:hover { color: var(--ink); }
-.lang a[aria-current="page"], .lang a.is-target { color: var(--night); }
-.lang.is-switching a[aria-current="page"] { color: var(--ink-dim); }
+.lang a:hover { color: var(--color-text); }
+.lang a[aria-current="page"], .lang a.is-target { color: var(--color-bg); }
+.lang.is-switching a[aria-current="page"] { color: var(--color-text-muted); }
+
+/* Light/dark switch. It needs JS to work, so it stays hidden without it. */
+.theme-toggle { display: none; }
+.js .theme-toggle {
+  display: inline-grid; place-items: center; width: var(--tap); height: var(--tap); padding: 0;
+  background: none; border: 1.5px solid var(--color-line-strong); border-radius: 999px; color: var(--color-text); cursor: pointer;
+  transition: border-color .2s;
+}
+.theme-toggle:hover { border-color: var(--color-text); }
+.theme-toggle svg { width: 1.125rem; height: 1.125rem; }
+/* Show the icon of the theme the button switches to. */
+.theme-toggle .icon-sun { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+}
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
 @media (min-width: 30em) {
   .site-nav .btn-sm { display: inline-flex; }
+  .mark { font-size: 1.25rem; }
+  .nav-right { gap: .625rem; }
 }
 @media (min-width: 48em) {
   /* Three columns: the links sit in the middle one, nudged a little right of true centre. */

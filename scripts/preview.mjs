@@ -66,5 +66,5 @@ createServer(async (request, response) => {
   });
   createReadStream(target).on('error', () => response.end()).pipe(response);
 }).listen(PORT, () => {
-  console.log(`Figlab preview: http://localhost:${PORT}/  (English: http://localhost:${PORT}/en/)`);
+  console.log(`Preview: http://localhost:${PORT}/  (English: http://localhost:${PORT}/en/)`);
 });

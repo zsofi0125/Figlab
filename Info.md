@@ -1,8 +1,8 @@
-# Figlab – project info
+# Portfolio – project info
 
-Every decision about the Figlab portfolio site is recorded here. When something changes, this file is updated: new decisions are added, changed ones are rewritten, dropped ones are deleted.
+Every decision about the portfolio site is recorded here. When something changes, this file is updated: new decisions are added, changed ones are rewritten, dropped ones are deleted.
 
-Last updated: 2026-11-22
+Last updated: 2026-11-25
 
 ## Goal
 
@@ -12,10 +12,11 @@ Last updated: 2026-11-22
 
 ## Name and branding
 
-- Site name: **Figlab**. The header, browser title and footer show only "Figlab".
+- Site name: **not chosen yet.** The fig theme and the name "Figlab" were dropped on 2026-11-25. Until Zsófi picks a new name, the site shows the placeholder "Studio Name". Change it in one place: `brandName` in `src/config/site.js` (and `$brand` in `scripts/generate-images.ps1`, then run `npm run images`).
 - Zsófi's name appears only in the intro (About) section.
-- Theme: fig. Deep purple / aubergine skin, cream rim (fig flesh), crimson seeds, golden stem, fig-leaf green, on a dark moody background.
-- Fonts: Gloock (headings), Figtree (body text), IBM Plex Mono (small labels).
+- Look: minimalist and mostly neutral, with one strong accent colour (soiled pink #85383E) and a quiet second one (olive). No themed metaphors or decorative illustrations.
+- Two colour themes. **Light**: warm cream background (#F6F1EA, from Pastel Earth #D7CAB7), dark burgundy text (#3E0911). **Dark**: dark burgundy background, cream text, dusty pink (#C39583) accent. The site follows the visitor's browser setting, and a moon/sun button in the header switches between them; the choice is remembered. All colours are in `src/styles/tokens.css`.
+- Fonts: Montserrat Alternates (headings) and Montserrat (body text). Kept for now; new font pairings to be suggested once the colours are settled.
 
 ## Format and files
 
@@ -37,12 +38,12 @@ Last updated: 2026-11-22
 
 ## Sections (in order)
 
-1. **Header** – Figlab logo, menu, HU/EN switch, "Free design draft" button.
-2. **Hero** – headline, short description, buttons, key facts, and a fan of three finished-website cards (click one to jump to the showcase). Fig animations were tried here on 2026-11-22 and removed the same day because Zsófi didn't like them.
+1. **Header** – site name with an accent dot, menu, light/dark switch, HU/EN switch, "Free design draft" button.
+2. **Hero** – headline, short description, buttons, key facts, and a fan of three finished-website cards (click one to jump to the showcase). Animations were tried here on 2026-11-22 and removed the same day because Zsófi didn't like them.
 3. **About / intro** – placeholder for her photo, placeholder for her About text, three promises.
 4. **Work / showcase** – each past website shown in a desktop **monitor frame** with a **phone frame** beside it; both can be scrolled. Tabs switch between projects.
 5. **Free design draft (guarantee)** – a prominent band: she makes a free design draft before the client pays anything.
-6. **Process** – a fig bush grows from seed to fruit while scrolling; the text changes per stage. Five stages: Seed, Sprout, Leaves, Blossom, Fruit. Fruit = the finished website.
+6. **Process** – five steps as a simple numbered list (first email, free design draft, decision and plan, build, launch), each with its timing and what the client gets.
 7. **Affordable** – why the price is low: no agency overheads, a fixed price up front, and still mobile- and Google-friendly. Added for the "olcsó weboldal készítés" searches.
 8. **Pricing** – 3 one-time plans + 2 monthly plans.
 9. **FAQ**.
@@ -54,9 +55,9 @@ Last updated: 2026-11-22
 - Prices in **HUF (Ft)**. All amounts are **placeholders** for now.
 - **No webshop** (not offered yet).
 - Three one-time plans:
-  1. **Seedling / Magonc** – one-page website. Placeholder: from 149 000 Ft.
-  2. **Ripe fig / Érett füge** – business website, up to 6 pages (marked "most chosen"). Placeholder: from 349 000 Ft.
-  3. **Fig grove / Fügeliget** – everything in plan 2 plus extras: **calendar and online appointment booking, embedded Google Maps, blog**. Placeholder: from 549 000 Ft.
+  1. **Starter / Induló** – one-page website. Placeholder: from 149 000 Ft.
+  2. **Standard / Standard** – business website, up to 6 pages (marked "most chosen"). Placeholder: from 349 000 Ft.
+  3. **Complete / Teljes** – everything in plan 2 plus extras: **calendar and online appointment booking, embedded Google Maps, blog**. Placeholder: from 549 000 Ft.
 - **Two monthly plans** exist. Names, prices and contents are placeholders that Zsófi will change later (currently "Care / Gondozás" and "Care+ / Gondozás+").
 - Fine print (placeholders): payment split, domain and hosting not included.
 

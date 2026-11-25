@@ -1,72 +1,21 @@
-/* Process: a fig bush grows from seed to fruit while scrolling.
-   Base styles show everything at once (no JS, print, crawlers); .js turns on the scroll story. */
-.process { padding-bottom: 2.5rem; background: linear-gradient(180deg, var(--night), #1d1222 30%, #1d1222); }
+/* Process: five steps as a plain numbered list */
 .process .lead { margin-top: 1.125rem; }
-.track { position: relative; margin-top: 2.5rem; }
-.pin { display: grid; grid-template-columns: minmax(0, 1fr); gap: .625rem; align-content: center; }
-.garden { position: relative; display: block; height: 40svh; overflow: hidden; }
-.garden::before { content: ""; position: absolute; inset: 12% 8%; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, rgba(184, 31, 51, calc(var(--p, 0) * .28)) 0, transparent 65%); }
-.plant { display: block; width: 100%; height: 100%; overflow: visible; }
-.stem { fill: none; stroke: #7a5a3a; stroke-linecap: round; stroke-dasharray: 1 1; }
-.root { fill: none; stroke: #5a4030; stroke-width: 1.2; stroke-linecap: round; stroke-dasharray: 1 1; }
-.pop { transform-box: fill-box; transform-origin: 50% 100%; transition: transform .7s cubic-bezier(.3, 1.5, .5, 1), opacity .4s; }
-.pop.hang { transform-origin: 50% 0; }
-.seedling { transform-box: fill-box; transform-origin: 50% 50%; transition: transform .6s, opacity .6s; }
-.sway { transform-box: fill-box; transform-origin: 50% 100%; animation: sway 6s ease-in-out infinite; }
-@keyframes sway { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
-html:not(.js) .seedling, html:not(.js) .is-unripe { display: none; }
+.stages { display: grid; grid-template-columns: minmax(0, 1fr); margin-top: 3rem; border-top: 1px solid var(--color-line); }
+.st { display: grid; grid-template-columns: minmax(0, 1fr); gap: .25rem; padding-block: 1.75rem; border-bottom: 1px solid var(--color-line); }
+.st .when { font-family: var(--f-mono); font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--color-secondary); }
+.st h3 { margin-top: .25rem; font-size: clamp(1.5rem, 3vw, 2rem); }
+.st .text { max-width: 52ch; margin-top: .5rem; font-size: .98rem; color: var(--color-text-muted); }
+.st .get { margin-top: .75rem; font-size: .92rem; }
+.st .get b { font-weight: 600; }
+.st.final .get b { color: var(--color-accent); }
 
-.steps { display: flex; gap: .375rem; margin-bottom: .875rem; }
-.steps li { flex: 1; min-width: 0; }
-.steps button {
-  position: relative; width: 100%; min-height: var(--tap); padding: .625rem 0 0; cursor: pointer; text-align: left;
-  background: none; border: 0; color: var(--ink-dim); font: 500 .7rem var(--f-body);
-}
-.steps button::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 3px; background: rgba(241, 230, 204, .15); }
-.steps button::after { content: ""; position: absolute; top: 0; left: 0; height: 3px; border-radius: 3px; width: calc(var(--fill, 0) * 100%); background: var(--seed-hi); }
-.steps button[aria-current="step"] { color: var(--flesh); }
-html:not(.js) .steps, html:not(.js) .scroll-hint { display: none; }
+.inside { max-width: 52rem; margin-top: 3rem; padding: 1.75rem; border-radius: var(--radius); background: var(--color-surface); }
+.inside p { color: var(--color-text-muted); }
+.inside b { font-weight: 600; color: var(--color-text); }
 
-.panels { display: grid; gap: 2rem; }
-.st .when { font-family: var(--f-mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--stem); }
-.st h3 { margin-top: .5rem; font-size: 2.3rem; }
-.st .what { margin-top: .25rem; font-weight: 600; font-size: 1.1rem; color: var(--flesh); }
-.st .text { max-width: 46ch; margin-top: .5rem; font-size: .95rem; color: var(--ink-dim); }
-.st .get { display: inline-block; margin-top: .75rem; padding: .5625rem .75rem; border-radius: 12px; font-size: .88rem; color: var(--ink); background: rgba(241, 230, 204, .06); border: 1px solid var(--line); }
-.st .get b { font-weight: 600; color: var(--flesh); }
-.st.final .get { background: var(--seed); border-color: var(--seed); color: var(--flesh); }
-.scroll-hint { display: none; margin-top: 1.625rem; font-family: var(--f-mono); font-size: .72rem; letter-spacing: .06em; color: var(--ink-dim); transition: opacity .4s; }
-
-/* Scroll-driven story (JS only) */
-.js .track { height: calc(5 * 80svh); }
-.js .pin { position: sticky; top: calc(var(--safe-top) + var(--header-h)); height: calc(100svh - var(--header-h) - var(--safe-top)); padding-block: .625rem; grid-template-rows: auto auto; }
-.js .stem, .js .root { stroke-dashoffset: 1; }
-.js .pop { transform: scale(0); opacity: 0; }
-.js .pop.on { transform: scale(1); opacity: 1; }
-.js .pop.on.gone { transform: scale(.6); opacity: 0; }
-.js .seedling.gone { opacity: 0; transform: scale(.4); }
-.js .panels { gap: 0; }
-.js .st { grid-area: 1 / 1; opacity: 0; visibility: hidden; transform: translateY(14px); transition: opacity .45s, transform .45s, visibility .45s; }
-.js .st.on { opacity: 1; visibility: visible; transform: none; }
-
-.inside { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; align-items: center; max-width: 51.25rem; margin-top: 1.5rem; padding: 1.625rem 1.75rem; border-radius: 18px; border: 1px dashed rgba(199, 162, 79, .45); }
-.inside svg { width: 4rem; height: 4rem; }
-.inside p { color: var(--ink-dim); }
-.inside b { font-weight: 600; color: var(--flesh); }
-
-@media (min-width: 30em) {
-  .inside { grid-template-columns: auto minmax(0, 1fr); }
-}
-@media (min-width: 56em) {
-  .garden { display: grid; place-items: center; height: 100%; max-height: 40rem; overflow: visible; }
-  .pin { grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-  .js .pin { grid-template-rows: none; padding-block: 0; }
-  .js .track { height: calc(5 * 85svh); }
-  html:not(.js) .garden { height: 40rem; }
-  .steps { margin-bottom: 1.75rem; }
-  .steps button { font-size: .78rem; }
-  .st h3 { font-size: clamp(2.6rem, 5vw, 4rem); }
-  .st .text { margin-top: .875rem; font-size: 1.05rem; }
-  .st .get { margin-top: 1.25rem; padding: .75rem 1rem; font-size: .95rem; }
-  .js .scroll-hint { display: block; }
+@media (min-width: 48em) {
+  .st { grid-template-columns: 12.5rem minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; align-items: baseline; padding-block: 2rem; }
+  .st h3 { margin-top: 0; }
+  .st .body { grid-column: 3; }
+  .st .text { margin-top: 0; }
 }
